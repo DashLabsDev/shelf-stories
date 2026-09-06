@@ -37,7 +37,7 @@ export default function HomePage() {
             The bookshelf<span className="text-walnut">.</span>
           </h1>
           <p className="mt-3 max-w-md text-base text-ink/50 sm:text-lg">
-            Click any book to take a closer look.
+            Hover to browse · Click to open
           </p>
           {data.demo && (
             <p className="mt-4 inline-block rounded-full border border-brass/40 bg-brass/10 px-3 py-1 text-xs text-walnut-dark">
@@ -53,10 +53,11 @@ export default function HomePage() {
         </div>
       </header>
 
-      <Library shelves={data.shelves} stats={stats} />
+      <Library shelves={data.shelves} />
 
       <footer className="mt-20 border-t border-ink/10 pt-8 text-sm text-ink/40">
-        The bookshelf · Shelf Stories · Dash Labs
+        <span>The bookshelf · Shelf Stories</span>
+        <span className="ml-2 text-ink/25">Dash Labs</span>
       </footer>
     </main>
   );

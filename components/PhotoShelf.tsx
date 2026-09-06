@@ -82,7 +82,9 @@ export default function PhotoShelf({
                   onMouseLeave={() => setHovered(null)}
                   onFocus={() => setHovered(book.id)}
                   onBlur={() => setHovered(null)}
-                  onClick={() => onSelect(book)}
+                  onClick={() => {
+                    if (active) onSelect(book);
+                  }}
                 />
               );
             })}
@@ -113,7 +115,7 @@ export default function PhotoShelf({
         <div className="shelf-ledge" />
       </div>
       <p className="mt-3 text-center text-xs text-ink/40 sm:text-sm">
-        Hover a spine for its title · click for details
+        Hover to browse · Click to open
       </p>
     </section>
   );

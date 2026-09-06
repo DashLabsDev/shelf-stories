@@ -251,7 +251,9 @@
             "y": 29.8,
             "w": 4.32,
             "h": 16.4
-          }
+          },
+          "year": 1960,
+          "publisher": "Houghton Mifflin"
         },
         {
           "id": "bk-016",
@@ -266,7 +268,9 @@
             "y": 29.8,
             "w": 4.32,
             "h": 16.4
-          }
+          },
+          "year": 1949,
+          "publisher": "Doubleday"
         },
         {
           "id": "bk-017",
@@ -281,7 +285,9 @@
             "y": 29.8,
             "w": 4.32,
             "h": 16.4
-          }
+          },
+          "year": 1940,
+          "publisher": "Macmillan"
         },
         {
           "id": "bk-018",
@@ -296,7 +302,9 @@
             "y": 29.8,
             "w": 4.32,
             "h": 16.4
-          }
+          },
+          "year": 1956,
+          "publisher": "Harcourt"
         },
         {
           "id": "bk-019",
@@ -311,7 +319,9 @@
             "y": 29.8,
             "w": 4.32,
             "h": 16.4
-          }
+          },
+          "year": 1943,
+          "publisher": "Viking Press"
         },
         {
           "id": "bk-020",
@@ -326,7 +336,9 @@
             "y": 29.8,
             "w": 4.32,
             "h": 16.4
-          }
+          },
+          "year": 1955,
+          "publisher": "Houghton Mifflin"
         },
         {
           "id": "bk-021",
@@ -389,7 +401,9 @@
             "y": 29.8,
             "w": 2.5,
             "h": 16.4
-          }
+          },
+          "year": 1932,
+          "publisher": "Harper & Brothers"
         },
         {
           "id": "bk-025",
@@ -404,7 +418,9 @@
             "y": 29.8,
             "w": 2.5,
             "h": 16.4
-          }
+          },
+          "year": 1935,
+          "publisher": "Harper & Brothers"
         },
         {
           "id": "bk-026",
@@ -419,7 +435,9 @@
             "y": 29.8,
             "w": 2.5,
             "h": 16.4
-          }
+          },
+          "year": 1933,
+          "publisher": "Harper & Brothers"
         },
         {
           "id": "bk-027",
@@ -434,7 +452,9 @@
             "y": 29.8,
             "w": 2.5,
             "h": 16.4
-          }
+          },
+          "year": 1937,
+          "publisher": "Harper & Brothers"
         },
         {
           "id": "bk-028",
@@ -449,7 +469,9 @@
             "y": 29.8,
             "w": 2.5,
             "h": 16.4
-          }
+          },
+          "year": 1939,
+          "publisher": "Harper & Brothers"
         },
         {
           "id": "bk-029",
@@ -464,7 +486,9 @@
             "y": 29.8,
             "w": 2.5,
             "h": 16.4
-          }
+          },
+          "year": 1940,
+          "publisher": "Harper & Brothers"
         },
         {
           "id": "bk-030",
@@ -479,7 +503,9 @@
             "y": 29.8,
             "w": 2.5,
             "h": 16.4
-          }
+          },
+          "year": 1941,
+          "publisher": "Harper & Brothers"
         },
         {
           "id": "bk-031",
@@ -494,7 +520,9 @@
             "y": 29.8,
             "w": 2.5,
             "h": 16.4
-          }
+          },
+          "year": 1943,
+          "publisher": "Harper & Brothers"
         },
         {
           "id": "bk-032",
@@ -509,7 +537,9 @@
             "y": 29.8,
             "w": 2.5,
             "h": 16.4
-          }
+          },
+          "year": 1971,
+          "publisher": "Harper & Row"
         },
         {
           "id": "bk-033",
@@ -524,7 +554,9 @@
             "y": 29.8,
             "w": 2.5,
             "h": 16.4
-          }
+          },
+          "year": 1951,
+          "publisher": "W. W. Norton"
         },
         {
           "id": "bk-034",
@@ -539,7 +571,9 @@
             "y": 29.8,
             "w": 2.5,
             "h": 16.4
-          }
+          },
+          "year": 1961,
+          "publisher": "W. W. Norton"
         },
         {
           "id": "bk-035",
@@ -554,7 +588,9 @@
             "y": 29.8,
             "w": 2.5,
             "h": 16.4
-          }
+          },
+          "year": 1953,
+          "publisher": "W. W. Norton"
         },
         {
           "id": "bk-036",
@@ -569,7 +605,9 @@
             "y": 29.8,
             "w": 2.5,
             "h": 16.4
-          }
+          },
+          "year": 1956,
+          "publisher": "W. W. Norton"
         },
         {
           "id": "bk-037",
@@ -584,7 +622,9 @@
             "y": 29.8,
             "w": 2.5,
             "h": 16.4
-          }
+          },
+          "year": 1963,
+          "publisher": "W. W. Norton"
         },
         {
           "id": "bk-038",
@@ -599,7 +639,9 @@
             "y": 29.8,
             "w": 2.5,
             "h": 16.4
-          }
+          },
+          "year": 1962,
+          "publisher": "W. W. Norton"
         }
       ]
     },

@@ -45,6 +45,10 @@ export interface Book {
   color: string;
   /** Optional freeform note (condition, provenance, legibility, ...). */
   notes?: string;
+  /** Optional publication year when confidently known. */
+  year?: number;
+  /** Optional publisher when confidently known. */
+  publisher?: string;
   /** Optional crop of the shelf photo used as the spine face. */
   spineCrop?: SpineCrop;
 }

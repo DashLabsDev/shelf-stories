@@ -76,7 +76,7 @@ export default function ShelfRow({
         <div className="shelf-back relative">
           <div
             ref={railRef}
-            className="spine-rail relative z-[1] flex snap-x snap-mandatory items-end gap-px overflow-x-auto overflow-y-visible scroll-smooth px-4 pb-0 pt-8 sm:px-6"
+            className="spine-rail relative z-[1] flex snap-x snap-mandatory items-end gap-0 overflow-x-auto overflow-y-visible scroll-smooth px-3 pb-0 pt-8 sm:px-5"
           >
             {shelf.books.map((book) => (
               <div key={book.id} className="snap-start shrink-0">

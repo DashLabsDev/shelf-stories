@@ -98,13 +98,13 @@ export function spineMetrics(book: Book): { height: number; width: number } {
   for (let i = 0; i < book.id.length; i++) {
     hash = (hash * 31 + book.id.charCodeAt(i)) & 0xffff;
   }
-  const height = 168 + (hash % 58); // 168–225 px
+  const height = 172 + (hash % 52); // 172–223 px
   if (book.spineCrop) {
-    // Map crop width % → px with denser packing
-    const width = Math.max(16, Math.min(52, Math.round(book.spineCrop.w * 8.5)));
+    // Map crop width % → px with denser packing (tighter than prior pass)
+    const width = Math.max(14, Math.min(40, Math.round(book.spineCrop.w * 6.8)));
     return { height, width };
   }
-  const width = 22 + ((hash >> 4) % 26); // 22–47 px
+  const width = 16 + ((hash >> 4) % 20); // 16–35 px
   return { height, width };
 }
 

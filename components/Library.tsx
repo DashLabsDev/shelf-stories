@@ -2,9 +2,9 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Book, Category, Shelf } from "@/lib/types";
-import { CATEGORY_LABELS } from "@/lib/types";
-import type { FlatBook, LibraryStats } from "@/lib/data";
-import { filterShelves, flattenBooks } from "@/lib/data";
+import { CATEGORIES, CATEGORY_LABELS } from "@/lib/types";
+import type { FlatBook } from "@/lib/data";
+import { bookMatchesQuery, filterShelves, flattenBooks } from "@/lib/data";
 import ShelfRow from "./ShelfRow";
 import BookModal from "./BookModal";
 import PhotoShelf from "./PhotoShelf";
@@ -22,38 +22,54 @@ const FILTERS: { value: Filter; label: string }[] = [
 
 export default function Library({
   shelves,
-  stats,
 }: {
   shelves: Shelf[];
-  stats: LibraryStats;
 }) {
   const [filter, setFilter] = useState<Filter>("all");
   const [query, setQuery] = useState("");
   const [showPhoto, setShowPhoto] = useState(true);
   const searchRef = useRef<HTMLInputElement>(null);
-  const [selected, setSelected] = useState<{
-    book: Book;
-    shelfLabel: string;
-  } | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const visibleShelves = useMemo(
     () => filterShelves(shelves, filter, query),
     [shelves, filter, query]
   );
 
+  /** Filtered shelf order — drives modal prev/next. */
+  const orderedBooks = useMemo(
+    () => flattenBooks(visibleShelves),
+    [visibleShelves]
+  );
+
   const allFlat = useMemo(() => flattenBooks(shelves), [shelves]);
+
+  /** Query-aware category counts so pills match what a filter would show. */
+  const filterCounts = useMemo(() => {
+    const byCategory = Object.fromEntries(
+      CATEGORIES.map((c) => [c, 0])
+    ) as Record<Category, number>;
+    let total = 0;
+    for (const shelf of shelves) {
+      for (const book of shelf.books) {
+        if (!bookMatchesQuery(book, query)) continue;
+        total += 1;
+        byCategory[book.category] += 1;
+      }
+    }
+    return { total, byCategory };
+  }, [shelves, query]);
+
   const activeIds = useMemo(() => {
     const ids = new Set<string>();
-    for (const s of visibleShelves) {
-      for (const b of s.books) ids.add(b.id);
-    }
+    for (const b of orderedBooks) ids.add(b.id);
     return ids;
-  }, [visibleShelves]);
+  }, [orderedBooks]);
 
   const photo =
     shelves.find((s) => s.photo)?.photo ?? "/shelves/shelf-thomas-1.jpg";
 
-  const totalVisible = activeIds.size;
+  const totalVisible = orderedBooks.length;
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -68,13 +84,21 @@ export default function Library({
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const openBook = (book: Book, shelfLabel: string) => {
-    setSelected({ book, shelfLabel });
+  // Keep selection valid when filter/query changes.
+  useEffect(() => {
+    if (selectedIndex == null) return;
+    if (selectedIndex >= orderedBooks.length) {
+      setSelectedIndex(orderedBooks.length > 0 ? orderedBooks.length - 1 : null);
+    }
+  }, [orderedBooks.length, selectedIndex]);
+
+  const openById = (id: string) => {
+    const idx = orderedBooks.findIndex((b) => b.id === id);
+    if (idx >= 0) setSelectedIndex(idx);
   };
 
-  const openFlat = (book: FlatBook) => {
-    setSelected({ book, shelfLabel: book.shelfLabel });
-  };
+  const openBook = (book: Book) => openById(book.id);
+  const openFlat = (book: FlatBook) => openById(book.id);
 
   return (
     <div>
@@ -121,13 +145,17 @@ export default function Library({
           {FILTERS.map((f) => {
             const active = filter === f.value;
             const count =
-              f.value === "all" ? stats.totalBooks : stats.byCategory[f.value];
+              f.value === "all"
+                ? filterCounts.total
+                : filterCounts.byCategory[f.value];
+            // Hide empty genre pills (never show empty Fiction stubs).
             if (f.value !== "all" && count === 0) return null;
             return (
               <button
                 key={f.value}
                 onClick={() => setFilter(f.value)}
                 aria-pressed={active}
+                disabled={count === 0}
                 className={`rounded-full px-3.5 py-1.5 text-sm transition-colors ${
                   active
                     ? "bg-sage-muted text-ink"
@@ -192,19 +220,21 @@ export default function Library({
             <ShelfRow
               key={shelf.id}
               shelf={shelf}
-              onSelect={(book) => openBook(book, shelf.label)}
+              onSelect={openBook}
             />
           ))
         )}
       </div>
 
-      {selected && (
+      {selectedIndex != null && orderedBooks[selectedIndex] && (
         <BookModal
-          book={selected.book}
-          shelfLabel={selected.shelfLabel}
-          onClose={() => setSelected(null)}
+          books={orderedBooks}
+          index={selectedIndex}
+          onClose={() => setSelectedIndex(null)}
+          onNavigate={setSelectedIndex}
         />
       )}
+
     </div>
   );
 }

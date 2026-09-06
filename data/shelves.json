@@ -12,7 +12,7 @@
           "title": "Lakewood High School 1996 Volume 24",
           "author": "Lakewood High School",
           "category": "nonfiction",
-          "spineLabel": "LAKEWOOD HIGH SCHOOL 1996 \u00b7 VOLUME 24",
+          "spineLabel": "LAKEWOOD HIGH SCHOOL 1996 · VOLUME 24",
           "identified": true,
           "color": "#1a1a1a",
           "notes": "Yearbook; gold lettering on black spine.",
@@ -253,7 +253,8 @@
             "h": 16.4
           },
           "year": 1960,
-          "publisher": "Houghton Mifflin"
+          "publisher": "Houghton Mifflin",
+          "faceOut": true
         },
         {
           "id": "bk-016",
@@ -420,7 +421,8 @@
             "h": 16.4
           },
           "year": 1935,
-          "publisher": "Harper & Brothers"
+          "publisher": "Harper & Brothers",
+          "faceOut": true
         },
         {
           "id": "bk-026",
@@ -655,7 +657,7 @@
           "title": "I Wonder",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "1 \u00b7 I WONDER",
+          "spineLabel": "1 · I WONDER",
           "identified": true,
           "color": "#4a7ab8",
           "notes": "Numbered reading series, vol. 1.",
@@ -671,7 +673,7 @@
           "title": "Happy Hearts",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "2 \u00b7 HAPPY HEARTS",
+          "spineLabel": "2 · HAPPY HEARTS",
           "identified": true,
           "color": "#6a5a9a",
           "notes": "Numbered reading series, vol. 2.",
@@ -680,14 +682,15 @@
             "y": 51.8,
             "w": 2.73,
             "h": 16.4
-          }
+          },
+          "faceOut": true
         },
         {
           "id": "bk-041",
           "title": "Doors to Discovery",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "3 \u00b7 DOORS TO DISCOVERY",
+          "spineLabel": "3 · DOORS TO DISCOVERY",
           "identified": true,
           "color": "#8a4a8a",
           "notes": "Numbered reading series, vol. 3.",
@@ -703,7 +706,7 @@
           "title": "Bridges",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "4 \u00b7 BRIDGES",
+          "spineLabel": "4 · BRIDGES",
           "identified": true,
           "color": "#c45a5a",
           "notes": "Numbered reading series, vol. 4.",
@@ -719,7 +722,7 @@
           "title": "Open Windows",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "5 \u00b7 OPEN WINDOWS",
+          "spineLabel": "5 · OPEN WINDOWS",
           "identified": true,
           "color": "#5a9a6a",
           "notes": "Numbered reading series, vol. 5.",
@@ -735,7 +738,7 @@
           "title": "Calls to Success",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "6 \u00b7 CALLS TO SUCCESS",
+          "spineLabel": "6 · CALLS TO SUCCESS",
           "identified": true,
           "color": "#c8a84a",
           "notes": "Numbered reading series, vol. 6.",
@@ -751,7 +754,7 @@
           "title": "The Road Less Traveled",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "7 \u00b7 THE ROAD LESS TRAVELED",
+          "spineLabel": "7 · THE ROAD LESS TRAVELED",
           "identified": true,
           "color": "#3a6a8a",
           "notes": "Numbered reading series, vol. 7 (from spine numbering).",
@@ -767,7 +770,7 @@
           "title": "Where Roads Diverge",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "8 \u00b7 WHERE ROADS DIVERGE",
+          "spineLabel": "8 · WHERE ROADS DIVERGE",
           "identified": true,
           "color": "#2a5a4a",
           "notes": "Numbered reading series, vol. 8 (from spine numbering).",
@@ -904,10 +907,10 @@
         },
         {
           "id": "bk-055",
-          "title": "God's Big Story \u2014 Level 1",
+          "title": "God's Big Story — Level 1",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "GOD'S BIG STORY \u00b7 LEVEL 1",
+          "spineLabel": "GOD'S BIG STORY · LEVEL 1",
           "identified": true,
           "color": "#7ab0d0",
           "notes": "Thick light-blue volume.",
@@ -916,14 +919,15 @@
             "y": 51.8,
             "w": 4.47,
             "h": 16.4
-          }
+          },
+          "faceOut": true
         },
         {
           "id": "bk-056",
-          "title": "God's Big Story \u2014 Level 2",
+          "title": "God's Big Story — Level 2",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "GOD'S BIG STORY \u00b7 LEVEL 2",
+          "spineLabel": "GOD'S BIG STORY · LEVEL 2",
           "identified": true,
           "color": "#4a8a5a",
           "notes": "Thick green volume.",
@@ -936,10 +940,10 @@
         },
         {
           "id": "bk-057",
-          "title": "God's Big Story \u2014 Level 3",
+          "title": "God's Big Story — Level 3",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "GOD'S BIG STORY \u00b7 LEVEL 3",
+          "spineLabel": "GOD'S BIG STORY · LEVEL 3",
           "identified": true,
           "color": "#2a4a7a",
           "notes": "Thick dark-blue volume.",
@@ -952,10 +956,10 @@
         },
         {
           "id": "bk-058",
-          "title": "God's Big Story \u2014 Level 4",
+          "title": "God's Big Story — Level 4",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "GOD'S BIG STORY \u00b7 LEVEL 4",
+          "spineLabel": "GOD'S BIG STORY · LEVEL 4",
           "identified": true,
           "color": "#a83a3a",
           "notes": "Thick red volume.",

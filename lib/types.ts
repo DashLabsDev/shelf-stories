@@ -51,6 +51,8 @@ export interface Book {
   publisher?: string;
   /** Optional crop of the shelf photo used as the spine face. */
   spineCrop?: SpineCrop;
+  /** True to display this book cover-out on the shelf instead of spine-out. */
+  faceOut?: boolean;
 }
 
 export interface Shelf {

@@ -56,7 +56,7 @@ export function getStats(data: ShelfData): LibraryStats {
 
 /**
  * Filter books by category + search query.
- * Empty shelves are dropped so filters never show “Nothing on this shelf…”.
+ * Empty shelves are dropped so filters never show empty voids.
  */
 export function filterShelves(
   shelves: Shelf[],
@@ -90,22 +90,45 @@ export function bookMatchesQuery(book: Book, query: string): boolean {
   return hay.includes(q);
 }
 
+export interface SpineMetrics {
+  /** Cover width (--book-w). */
+  width: number;
+  /** Cover/spine height (--book-h). */
+  height: number;
+  /** Spine thickness / slot depth (--book-d). */
+  depth: number;
+  /** Resting lean in degrees. */
+  lean: number;
+}
+
 /**
- * Dense, varied spine metrics — thinner packs for ~continuous shelf feel.
+ * Metrics for CSS 3D book meshes.
+ * Slot width = depth; object size = width x height x depth.
+ * Defaults ≈ 140 / 210 / 30 per REBUILD-SPEC.
  */
-export function spineMetrics(book: Book): { height: number; width: number } {
+export function spineMetrics(book: Book): SpineMetrics {
   let hash = 0;
   for (let i = 0; i < book.id.length; i++) {
     hash = (hash * 31 + book.id.charCodeAt(i)) & 0xffff;
   }
-  const height = 172 + (hash % 52); // 172–223 px
+  const height = 178 + (hash % 48); // 178–225
+  const width = 118 + ((hash >> 2) % 36); // 118–153 cover width
+
+  // Spine thickness from crop, or hash; denser continuous rows.
+  let depth: number;
   if (book.spineCrop) {
-    // Map crop width % → px with denser packing (tighter than prior pass)
-    const width = Math.max(14, Math.min(40, Math.round(book.spineCrop.w * 6.8)));
-    return { height, width };
+    depth = Math.max(14, Math.min(42, Math.round(book.spineCrop.w * 5.6)));
+  } else {
+    depth = 16 + ((hash >> 4) % 20); // 16–35
   }
-  const width = 16 + ((hash >> 4) % 20); // 16–35 px
-  return { height, width };
+
+  const leanSeed = (hash >> 3) % 20;
+  const lean = leanSeed < 5 ? ((hash >> 9) % 13) - 6 : 0; // −6…+6
+
+  if (book.faceOut) {
+    return { height, width: 96 + ((hash >> 4) % 28), depth, lean: -2 };
+  }
+  return { height, width, depth, lean };
 }
 
 /** CSS background props to show a % crop of a photo as the element face. */
@@ -129,19 +152,22 @@ export type FlatBook = Book & {
   shelfId: string;
   shelfLabel: string;
   photo: string | null;
+  /** 1-based position of the book on its shelf (left to right). */
+  positionInShelf: number;
 };
 
 export function flattenBooks(shelves: Shelf[]): FlatBook[] {
   const out: FlatBook[] = [];
   for (const shelf of shelves) {
-    for (const book of shelf.books) {
+    shelf.books.forEach((book, i) => {
       out.push({
         ...book,
         shelfId: shelf.id,
         shelfLabel: shelf.label,
         photo: shelf.photo,
+        positionInShelf: i + 1,
       });
-    }
+    });
   }
   return out;
 }

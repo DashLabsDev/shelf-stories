@@ -7,7 +7,6 @@ import type { FlatBook } from "@/lib/data";
 import { bookMatchesQuery, filterShelves, flattenBooks } from "@/lib/data";
 import ShelfRow from "./ShelfRow";
 import BookModal from "./BookModal";
-import PhotoShelf from "./PhotoShelf";
 
 type Filter = Category | "all";
 
@@ -20,37 +19,34 @@ const FILTERS: { value: Filter; label: string }[] = [
   { value: "unidentified", label: CATEGORY_LABELS.unidentified },
 ];
 
-export default function Library({
-  shelves,
-}: {
-  shelves: Shelf[];
-}) {
+export default function Library({ shelves }: { shelves: Shelf[] }) {
   const [filter, setFilter] = useState<Filter>("all");
   const [query, setQuery] = useState("");
-  const [showPhoto, setShowPhoto] = useState(true);
+  const [shelfFilter, setShelfFilter] = useState<string>("all");
   const searchRef = useRef<HTMLInputElement>(null);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
+  const scopedShelves = useMemo(() => {
+    if (shelfFilter === "all") return shelves;
+    return shelves.filter((s) => s.id === shelfFilter);
+  }, [shelves, shelfFilter]);
+
   const visibleShelves = useMemo(
-    () => filterShelves(shelves, filter, query),
-    [shelves, filter, query]
+    () => filterShelves(scopedShelves, filter, query),
+    [scopedShelves, filter, query]
   );
 
-  /** Filtered shelf order — drives modal prev/next. */
   const orderedBooks = useMemo(
     () => flattenBooks(visibleShelves),
     [visibleShelves]
   );
 
-  const allFlat = useMemo(() => flattenBooks(shelves), [shelves]);
-
-  /** Query-aware category counts so pills match what a filter would show. */
   const filterCounts = useMemo(() => {
     const byCategory = Object.fromEntries(
       CATEGORIES.map((c) => [c, 0])
     ) as Record<Category, number>;
     let total = 0;
-    for (const shelf of shelves) {
+    for (const shelf of scopedShelves) {
       for (const book of shelf.books) {
         if (!bookMatchesQuery(book, query)) continue;
         total += 1;
@@ -58,18 +54,11 @@ export default function Library({
       }
     }
     return { total, byCategory };
-  }, [shelves, query]);
-
-  const activeIds = useMemo(() => {
-    const ids = new Set<string>();
-    for (const b of orderedBooks) ids.add(b.id);
-    return ids;
-  }, [orderedBooks]);
-
-  const photo =
-    shelves.find((s) => s.photo)?.photo ?? "/shelves/shelf-thomas-1.jpg";
+  }, [scopedShelves, query]);
 
   const totalVisible = orderedBooks.length;
+  const hasActiveFilters =
+    filter !== "all" || query.trim().length > 0 || shelfFilter !== "all";
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -84,7 +73,6 @@ export default function Library({
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  // Keep selection valid when filter/query changes.
   useEffect(() => {
     if (selectedIndex == null) return;
     if (selectedIndex >= orderedBooks.length) {
@@ -98,15 +86,20 @@ export default function Library({
   };
 
   const openBook = (book: Book) => openById(book.id);
-  const openFlat = (book: FlatBook) => openById(book.id);
+
+  const clearFilters = () => {
+    setFilter("all");
+    setQuery("");
+    setShelfFilter("all");
+  };
 
   return (
     <div>
-      <div className="relative">
+      <div className="flex flex-col gap-3 rounded-lg border border-sage/25 bg-white/80 px-4 py-3 shadow-soft sm:flex-row sm:items-center">
         <label htmlFor="shelf-search" className="sr-only">
           Find a title or author
         </label>
-        <div className="flex items-center gap-3 rounded-2xl border border-ink/10 bg-white/70 px-4 py-3 shadow-soft backdrop-blur-sm">
+        <div className="flex min-w-0 flex-1 items-center gap-3">
           <svg
             aria-hidden
             className="h-5 w-5 shrink-0 text-ink/35"
@@ -130,13 +123,32 @@ export default function Library({
             placeholder="Find a title or author"
             className="min-w-0 flex-1 bg-transparent text-base text-ink outline-none placeholder:text-ink/35"
           />
-          <kbd className="hidden rounded-md border border-ink/10 bg-parchment px-1.5 py-0.5 text-[11px] text-ink/40 sm:inline">
+          <kbd className="hidden h-[22px] items-center rounded border border-ink/10 bg-parchment px-1.5 text-[11px] text-ink/40 sm:inline-flex">
             /
           </kbd>
         </div>
+        <div className="flex items-center gap-2 sm:ml-auto">
+          <span className="hidden text-sm text-ink/45 sm:inline">Browse</span>
+          <label htmlFor="shelf-select" className="sr-only">
+            Filter by shelf
+          </label>
+          <select
+            id="shelf-select"
+            value={shelfFilter}
+            onChange={(e) => setShelfFilter(e.target.value)}
+            className="rounded-md border border-ink/10 bg-parchment/80 px-3 py-1.5 text-sm text-ink/70 outline-none"
+          >
+            <option value="all">All shelves</option>
+            {shelves.map((s) => (
+              <option key={s.id} value={s.id}>
+                {s.label}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
-      <div className="mt-4 flex flex-wrap items-center gap-3">
+      <div className="mt-4 flex flex-wrap items-center gap-3" style={{ paddingTop: 4, paddingBottom: 8 }}>
         <div
           role="toolbar"
           aria-label="Filter books by category"
@@ -148,7 +160,6 @@ export default function Library({
               f.value === "all"
                 ? filterCounts.total
                 : filterCounts.byCategory[f.value];
-            // Hide empty genre pills (never show empty Fiction stubs).
             if (f.value !== "all" && count === 0) return null;
             return (
               <button
@@ -156,20 +167,23 @@ export default function Library({
                 onClick={() => setFilter(f.value)}
                 aria-pressed={active}
                 disabled={count === 0}
-                className={`rounded-full px-3.5 py-1.5 text-sm transition-colors ${
+                className={`rounded-md px-3 py-1.5 text-sm transition-colors ${
                   active
-                    ? "bg-sage-muted text-ink"
-                    : "bg-ink/[0.04] text-ink/55 hover:bg-ink/[0.07] hover:text-ink"
+                    ? "border border-sage/30 bg-sage-muted text-ink"
+                    : "text-ink/55 hover:bg-ink/[0.04] hover:text-ink"
                 }`}
+                style={{ padding: "8px 12px", borderRadius: 6, fontSize: 14 }}
               >
                 {f.label}
-                <span
-                  className={`ml-1.5 inline-block rounded-md px-1.5 py-0.5 text-[11px] tabular-nums ${
-                    active ? "bg-sage/20 text-ink/70" : "text-ink/40"
-                  }`}
-                >
-                  {count}
-                </span>
+                {f.value === "all" && (
+                  <span
+                    className={`ml-1.5 inline-block rounded-md px-1.5 py-0.5 text-[11px] tabular-nums ${
+                      active ? "bg-sage/20 text-ink/70" : "text-ink/40"
+                    }`}
+                  >
+                    {count}
+                  </span>
+                )}
               </button>
             );
           })}
@@ -179,37 +193,26 @@ export default function Library({
         </p>
       </div>
 
-      <div className="mt-4 flex flex-wrap items-center justify-between gap-2">
-        <p className="text-sm text-ink/40">
-          Showing {totalVisible} {totalVisible === 1 ? "book" : "books"}
-          {query.trim() ? ` matching “${query.trim()}”` : ""}
-          {visibleShelves.length > 0
-            ? ` across ${visibleShelves.length} ${
-                visibleShelves.length === 1 ? "shelf" : "shelves"
-              }`
-            : ""}
+      <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
+        <p className="text-sm text-ink/45">
+          {query.trim()
+            ? `${totalVisible} ${totalVisible === 1 ? "book" : "books"} found for “${query.trim()}”`
+            : filter !== "all"
+              ? `${totalVisible} ${totalVisible === 1 ? "book" : "books"} found`
+              : `Showing ${totalVisible} ${totalVisible === 1 ? "book" : "books"}`}
         </p>
-        <button
-          type="button"
-          onClick={() => setShowPhoto((v) => !v)}
-          className="rounded-full border border-ink/10 bg-white/60 px-3 py-1 text-xs text-ink/55 transition hover:border-sage/30 hover:text-ink"
-        >
-          {showPhoto ? "Hide photo map" : "Show photo map"}
-        </button>
+        {hasActiveFilters && (
+          <button
+            type="button"
+            onClick={clearFilters}
+            className="text-xs text-ink/50 underline-offset-2 hover:text-ink hover:underline"
+          >
+            Clear filters
+          </button>
+        )}
       </div>
 
-      {showPhoto && (
-        <div className="mt-6">
-          <PhotoShelf
-            photo={photo}
-            books={allFlat}
-            activeIds={activeIds}
-            onSelect={openFlat}
-          />
-        </div>
-      )}
-
-      <div className="mt-10 space-y-10">
+      <div className="mt-8 space-y-6">
         {visibleShelves.length === 0 ? (
           <p className="rounded-xl border border-ink/10 bg-white/40 px-6 py-10 text-center text-sm text-ink/50">
             No books match this filter
@@ -221,6 +224,7 @@ export default function Library({
               key={shelf.id}
               shelf={shelf}
               onSelect={openBook}
+              showNav={orderedBooks.length > 10}
             />
           ))
         )}
@@ -234,7 +238,6 @@ export default function Library({
           onNavigate={setSelectedIndex}
         />
       )}
-
     </div>
   );
 }

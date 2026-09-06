@@ -1,320 +1,638 @@
 {
-  "demo": true,
+  "heroPhoto": "/hero.jpg",
+  "demo": false,
   "shelves": [
     {
-      "id": "shelf-1",
-      "label": "Living Room — Top Shelf",
-      "photo": null,
+      "id": "shelf-1-left",
+      "label": "Top shelf — left",
+      "photo": "/shelves/shelf-thomas-1.jpg",
       "books": [
         {
           "id": "bk-001",
-          "title": "The Cartographer's Daughter",
-          "author": "Elena Marsh",
-          "category": "fiction",
-          "spineLabel": "THE CARTOGRAPHER'S DAUGHTER · MARSH",
+          "title": "Lakewood High School 1996 Volume 24",
+          "author": "Lakewood High School",
+          "category": "nonfiction",
+          "spineLabel": "LAKEWOOD HIGH SCHOOL 1996 · VOLUME 24",
           "identified": true,
-          "color": "#2f4858",
-          "notes": "Hardcover, dust jacket lightly worn at the head."
+          "color": "#1a1a1a",
+          "notes": "Yearbook; gold lettering on black spine."
         },
         {
           "id": "bk-002",
-          "title": "Embermarch",
-          "author": "K. R. Voss",
-          "category": "fantasy-horror",
-          "spineLabel": "EMBERMARCH — VOSS",
-          "identified": true,
-          "color": "#7a1f1f"
+          "title": null,
+          "author": null,
+          "category": "unidentified",
+          "spineLabel": "Curriculum reader",
+          "identified": false,
+          "color": "#f5f0e6",
+          "notes": "Thin cream Abeka-style reader."
         },
         {
           "id": "bk-003",
-          "title": "The Ledger of Small Betrayals",
-          "author": "Frank Okafor",
-          "category": "crime-mystery",
-          "spineLabel": "OKAFOR · THE LEDGER OF SMALL BETRAYALS",
-          "identified": true,
-          "color": "#1e2a24"
+          "title": null,
+          "author": null,
+          "category": "unidentified",
+          "spineLabel": "Curriculum reader",
+          "identified": false,
+          "color": "#e8e0d0",
+          "notes": "Thin cream/white curriculum spine."
         },
         {
           "id": "bk-004",
           "title": null,
           "author": null,
           "category": "unidentified",
-          "spineLabel": "…RCHARD KEE…",
+          "spineLabel": "Curriculum reader",
           "identified": false,
-          "color": "#6a6f5c",
-          "notes": "Faded cloth spine; only the middle of the title is legible."
+          "color": "#c5d5e0",
+          "notes": "Thin blue curriculum spine."
         },
         {
           "id": "bk-005",
-          "title": "Salt and Cedar",
-          "author": "Tomas Reyes",
-          "category": "fiction",
-          "spineLabel": "SALT AND CEDAR · REYES",
-          "identified": true,
-          "color": "#b0885a"
+          "title": null,
+          "author": null,
+          "category": "unidentified",
+          "spineLabel": "Curriculum reader",
+          "identified": false,
+          "color": "#7a9ab0",
+          "notes": "Thin blue curriculum spine."
         },
         {
           "id": "bk-006",
-          "title": "Shelf Life: A History of Home Libraries",
-          "author": "Alice Munsen",
-          "category": "nonfiction",
-          "spineLabel": "SHELF LIFE — MUNSEN",
-          "identified": true,
-          "color": "#3d5a45",
-          "notes": "The book that started this whole project."
+          "title": null,
+          "author": null,
+          "category": "unidentified",
+          "spineLabel": "Curriculum reader",
+          "identified": false,
+          "color": "#5a8a6a",
+          "notes": "Thin green curriculum spine."
         },
         {
           "id": "bk-007",
-          "title": "The Bone Orchard Below",
-          "author": "Sadie Rooke",
-          "category": "fantasy-horror",
-          "spineLabel": "ROOKE · THE BONE ORCHARD BELOW",
-          "identified": true,
-          "color": "#25203a"
+          "title": null,
+          "author": null,
+          "category": "unidentified",
+          "spineLabel": "Curriculum reader",
+          "identified": false,
+          "color": "#6b9b5e",
+          "notes": "Thin green curriculum spine."
         },
         {
           "id": "bk-008",
-          "title": "Dead Man's Switchback",
-          "author": "Rhea Calloway",
-          "category": "crime-mystery",
-          "spineLabel": "DEAD MAN'S SWITCHBACK",
-          "identified": true,
-          "color": "#8c4a2f"
+          "title": null,
+          "author": null,
+          "category": "unidentified",
+          "spineLabel": "Curriculum reader",
+          "identified": false,
+          "color": "#c45c4a",
+          "notes": "Thin red curriculum spine."
         },
         {
           "id": "bk-009",
           "title": null,
           "author": null,
           "category": "unidentified",
-          "spineLabel": "(no legible text)",
+          "spineLabel": "Curriculum reader",
           "identified": false,
-          "color": "#4b4239",
-          "notes": "Plain brown spine, no visible lettering. Possibly a journal."
+          "color": "#b33a2e",
+          "notes": "Thin red curriculum spine."
         },
         {
           "id": "bk-010",
-          "title": "A Quiet Inventory",
-          "author": "Priya Chandran",
-          "category": "fiction",
-          "spineLabel": "A QUIET INVENTORY · CHANDRAN",
-          "identified": true,
-          "color": "#c7b299"
-        },
-        {
-          "id": "bk-011",
-          "title": "The Fermentation Kitchen",
-          "author": "Marta Illes",
-          "category": "nonfiction",
-          "spineLabel": "ILLES — THE FERMENTATION KITCHEN",
-          "identified": true,
-          "color": "#a4632e"
-        },
-        {
-          "id": "bk-012",
-          "title": "The Wintering Court",
-          "author": "Maren Solvay",
-          "category": "fantasy-horror",
-          "spineLabel": "THE WINTERING COURT · SOLVAY",
-          "identified": true,
-          "color": "#37546b"
+          "title": null,
+          "author": null,
+          "category": "unidentified",
+          "spineLabel": "Curriculum reader",
+          "identified": false,
+          "color": "#d4a574",
+          "notes": "Thin tan curriculum spine."
         }
       ]
     },
     {
-      "id": "shelf-2",
-      "label": "Study — Middle Shelf",
-      "photo": null,
+      "id": "shelf-1-right",
+      "label": "Top shelf — right",
+      "photo": "/shelves/shelf-thomas-1.jpg",
       "books": [
         {
-          "id": "bk-013",
-          "title": "The Ashvale Confessions",
-          "author": "Martin Kessler",
-          "category": "crime-mystery",
-          "spineLabel": "KESSLER · THE ASHVALE CONFESSIONS",
-          "identified": true,
-          "color": "#26323e"
-        },
-        {
-          "id": "bk-014",
-          "title": "Six Bridges: Engineering the Impossible",
-          "author": "Caleb Wright",
-          "category": "nonfiction",
-          "spineLabel": "SIX BRIDGES — WRIGHT",
-          "identified": true,
-          "color": "#5b6770"
-        },
-        {
-          "id": "bk-015",
-          "title": "The Last Ferry to Aldermoor",
-          "author": "June Whitlock",
-          "category": "fiction",
-          "spineLabel": "THE LAST FERRY TO ALDERMOOR",
-          "identified": true,
-          "color": "#496b5d"
-        },
-        {
-          "id": "bk-016",
+          "id": "bk-011",
           "title": null,
           "author": null,
           "category": "unidentified",
-          "spineLabel": "…IGHT OF THE…",
+          "spineLabel": "Binder",
           "identified": false,
-          "color": "#7d2c3a",
-          "notes": "Gilt lettering mostly rubbed off. Red buckram binding."
+          "color": "#b8a0c8",
+          "notes": "Light purple/lavender binder."
+        },
+        {
+          "id": "bk-012",
+          "title": null,
+          "author": null,
+          "category": "unidentified",
+          "spineLabel": "Binder",
+          "identified": false,
+          "color": "#f0eeea",
+          "notes": "White binder."
+        },
+        {
+          "id": "bk-013",
+          "title": "Wisdom & Know How",
+          "author": null,
+          "category": "nonfiction",
+          "spineLabel": "WISDOM & KNOW HOW",
+          "identified": true,
+          "color": "#d4b84a",
+          "notes": "Thick cream/yellow reference volume."
+        },
+        {
+          "id": "bk-014",
+          "title": null,
+          "author": null,
+          "category": "unidentified",
+          "spineLabel": "Papers / envelopes",
+          "identified": false,
+          "color": "#f7f5f0",
+          "notes": "Stack of flat white envelopes or documents."
+        }
+      ]
+    },
+    {
+      "id": "shelf-2-left",
+      "label": "Middle shelf — left",
+      "photo": "/shelves/shelf-thomas-1.jpg",
+      "books": [
+        {
+          "id": "bk-015",
+          "title": "Island of the Blue Dolphins",
+          "author": "Scott O'Dell",
+          "category": "fiction",
+          "spineLabel": "ISLAND OF THE BLUE DOLPHINS",
+          "identified": true,
+          "color": "#2a4a6a"
+        },
+        {
+          "id": "bk-016",
+          "title": "Kildee House",
+          "author": "Rutherford Montgomery",
+          "category": "fiction",
+          "spineLabel": "KILDEE HOUSE",
+          "identified": true,
+          "color": "#3d5c45"
         },
         {
           "id": "bk-017",
-          "title": "What the Lighthouse Kept",
-          "author": "D. M. Ashworth",
-          "category": "fantasy-horror",
-          "spineLabel": "WHAT THE LIGHTHOUSE KEPT · ASHWORTH",
+          "title": "Call It Courage",
+          "author": "Armstrong Sperry",
+          "category": "fiction",
+          "spineLabel": "CALL IT COURAGE",
           "identified": true,
-          "color": "#1f3b4d"
+          "color": "#1e3a4c"
         },
         {
           "id": "bk-018",
-          "title": "Nobody's Alibi",
-          "author": "Lena Brandt",
-          "category": "crime-mystery",
-          "spineLabel": "BRANDT — NOBODY'S ALIBI",
+          "title": "Miracles on Maple Hill",
+          "author": "Virginia Sorensen",
+          "category": "fiction",
+          "spineLabel": "MIRACLES ON MAPLE HILL",
           "identified": true,
-          "color": "#b3a24c"
+          "color": "#c45a2a"
         },
         {
           "id": "bk-019",
-          "title": "Field Notes from a Backyard Prairie",
-          "author": "Rosa Delgado",
-          "category": "nonfiction",
-          "spineLabel": "FIELD NOTES FROM A BACKYARD PRAIRIE",
+          "title": "Homer Price",
+          "author": "Robert McCloskey",
+          "category": "fiction",
+          "spineLabel": "HOMER PRICE",
           "identified": true,
-          "color": "#6d8a4e"
+          "color": "#4a6741"
         },
         {
           "id": "bk-020",
-          "title": "Glasshouse Summer",
-          "author": "Owen Petrie",
+          "title": "Carry On, Mr. Bowditch",
+          "author": "Jean Lee Latham",
           "category": "fiction",
-          "spineLabel": "GLASSHOUSE SUMMER · PETRIE",
+          "spineLabel": "CARRY ON, MR. BOWDITCH",
           "identified": true,
-          "color": "#87a7b3"
+          "color": "#2c4560"
         },
         {
           "id": "bk-021",
           "title": null,
           "author": null,
           "category": "unidentified",
-          "spineLabel": "V·II",
+          "spineLabel": "Dark grey set",
           "identified": false,
-          "color": "#3a3d4d",
-          "notes": "Second volume of something — no series name visible."
+          "color": "#3a3a3e",
+          "notes": "Uniform dark grey/black spine, white lettering."
         },
         {
           "id": "bk-022",
-          "title": "The Seventh Door of Marrow Hall",
-          "author": "Celia Trent",
-          "category": "fantasy-horror",
-          "spineLabel": "TRENT · THE SEVENTH DOOR OF MARROW HALL",
-          "identified": true,
-          "color": "#432c47"
+          "title": null,
+          "author": null,
+          "category": "unidentified",
+          "spineLabel": "Dark grey set",
+          "identified": false,
+          "color": "#2e2e32",
+          "notes": "Uniform dark grey/black spine."
         },
         {
           "id": "bk-023",
-          "title": "The Clockmaker's Silence",
-          "author": "Hugo Farrant",
-          "category": "crime-mystery",
-          "spineLabel": "THE CLOCKMAKER'S SILENCE — FARRANT",
-          "identified": true,
-          "color": "#704214"
+          "title": null,
+          "author": null,
+          "category": "unidentified",
+          "spineLabel": "Dark grey set",
+          "identified": false,
+          "color": "#35353a",
+          "notes": "Uniform dark grey/black spine."
         }
       ]
     },
     {
-      "id": "shelf-3",
-      "label": "Bedroom — Nightstand Shelf",
-      "photo": null,
+      "id": "shelf-2-right",
+      "label": "Middle shelf — right",
+      "photo": "/shelves/shelf-thomas-1.jpg",
       "books": [
         {
           "id": "bk-024",
-          "title": "Meridian Avenue",
-          "author": "Carmen Ojeda",
+          "title": "Little House in the Big Woods",
+          "author": "Laura Ingalls Wilder",
           "category": "fiction",
-          "spineLabel": "MERIDIAN AVENUE · OJEDA",
+          "spineLabel": "LITTLE HOUSE IN THE BIG WOODS",
           "identified": true,
-          "color": "#c25e4c"
+          "color": "#e8a0b0"
         },
         {
           "id": "bk-025",
-          "title": "The Quiet Art of Repair",
-          "author": "Yusuf Adeyemi",
-          "category": "nonfiction",
-          "spineLabel": "ADEYEMI — THE QUIET ART OF REPAIR",
+          "title": "Little House on the Prairie",
+          "author": "Laura Ingalls Wilder",
+          "category": "fiction",
+          "spineLabel": "LITTLE HOUSE ON THE PRAIRIE",
           "identified": true,
-          "color": "#847577"
+          "color": "#e8c84a"
         },
         {
           "id": "bk-026",
-          "title": "Spindleworm",
-          "author": "Augusta Finn",
-          "category": "fantasy-horror",
-          "spineLabel": "SPINDLEWORM · FINN",
+          "title": "Farmer Boy",
+          "author": "Laura Ingalls Wilder",
+          "category": "fiction",
+          "spineLabel": "FARMER BOY",
           "identified": true,
-          "color": "#4d5e33"
+          "color": "#6a9a5a"
         },
         {
           "id": "bk-027",
-          "title": null,
-          "author": null,
-          "category": "unidentified",
-          "spineLabel": "…AND OTHER STORIES",
-          "identified": false,
-          "color": "#9a8866",
-          "notes": "Anthology of some kind; top half of the spine label is torn away."
+          "title": "On the Banks of Plum Creek",
+          "author": "Laura Ingalls Wilder",
+          "category": "fiction",
+          "spineLabel": "ON THE BANKS OF PLUM CREEK",
+          "identified": true,
+          "color": "#5a8ab8"
         },
         {
           "id": "bk-028",
-          "title": "Low Tide at Copper Bay",
-          "author": "Nia Trelawney",
-          "category": "crime-mystery",
-          "spineLabel": "LOW TIDE AT COPPER BAY · TRELAWNEY",
+          "title": "By the Shores of Silver Lake",
+          "author": "Laura Ingalls Wilder",
+          "category": "fiction",
+          "spineLabel": "BY THE SHORES OF SILVER LAKE",
           "identified": true,
-          "color": "#2e5f6e"
+          "color": "#7a6a9a"
         },
         {
           "id": "bk-029",
-          "title": "Paper Trails: Letters That Changed Nothing",
-          "author": "Iris Kaufman",
-          "category": "nonfiction",
-          "spineLabel": "PAPER TRAILS — KAUFMAN",
+          "title": "The Long Winter",
+          "author": "Laura Ingalls Wilder",
+          "category": "fiction",
+          "spineLabel": "THE LONG WINTER",
           "identified": true,
-          "color": "#d8c9a3"
+          "color": "#c8d0d8"
         },
         {
           "id": "bk-030",
-          "title": "The Orchardkeeper's Almanac",
-          "author": "Hale Bennett",
+          "title": "Little Town on the Prairie",
+          "author": "Laura Ingalls Wilder",
           "category": "fiction",
-          "spineLabel": "THE ORCHARDKEEPER'S ALMANAC",
+          "spineLabel": "LITTLE TOWN ON THE PRAIRIE",
           "identified": true,
-          "color": "#7c5c3b"
+          "color": "#d48a5a"
         },
         {
           "id": "bk-031",
-          "title": null,
-          "author": null,
-          "category": "unidentified",
-          "spineLabel": "…IDNIGHT…",
-          "identified": false,
-          "color": "#20242e",
-          "notes": "Black spine with silver serif type; glare hides the rest."
+          "title": "These Happy Golden Years",
+          "author": "Laura Ingalls Wilder",
+          "category": "fiction",
+          "spineLabel": "THESE HAPPY GOLDEN YEARS",
+          "identified": true,
+          "color": "#c45a6a"
         },
         {
           "id": "bk-032",
-          "title": "Nightjar's Bargain",
-          "author": "Ivo Petrenko",
-          "category": "fantasy-horror",
-          "spineLabel": "NIGHTJAR'S BARGAIN · PETRENKO",
+          "title": "The First Four Years",
+          "author": "Laura Ingalls Wilder",
+          "category": "fiction",
+          "spineLabel": "THE FIRST FOUR YEARS",
           "identified": true,
-          "color": "#54321e"
+          "color": "#8a6a4a"
+        },
+        {
+          "id": "bk-033",
+          "title": "Man of the Family",
+          "author": "Ralph Moody",
+          "category": "fiction",
+          "spineLabel": "MAN OF THE FAMILY",
+          "identified": true,
+          "color": "#1c1c1c"
+        },
+        {
+          "id": "bk-034",
+          "title": "Mary Emma & Company",
+          "author": "Ralph Moody",
+          "category": "fiction",
+          "spineLabel": "MARY EMMA & COMPANY",
+          "identified": true,
+          "color": "#222222"
+        },
+        {
+          "id": "bk-035",
+          "title": "The Fields of Home",
+          "author": "Ralph Moody",
+          "category": "fiction",
+          "spineLabel": "THE FIELDS OF HOME",
+          "identified": true,
+          "color": "#1a1a1a"
+        },
+        {
+          "id": "bk-036",
+          "title": "The Home Ranch",
+          "author": "Ralph Moody",
+          "category": "fiction",
+          "spineLabel": "THE HOME RANCH",
+          "identified": true,
+          "color": "#202020"
+        },
+        {
+          "id": "bk-037",
+          "title": "The Dry Divide",
+          "author": "Ralph Moody",
+          "category": "fiction",
+          "spineLabel": "THE DRY DIVIDE",
+          "identified": true,
+          "color": "#181818"
+        },
+        {
+          "id": "bk-038",
+          "title": "Shaking the Nickel Bush",
+          "author": "Ralph Moody",
+          "category": "fiction",
+          "spineLabel": "SHAKING THE NICKEL BUSH",
+          "identified": true,
+          "color": "#242424"
+        }
+      ]
+    },
+    {
+      "id": "shelf-3-left",
+      "label": "Lower shelf — left",
+      "photo": "/shelves/shelf-thomas-1.jpg",
+      "books": [
+        {
+          "id": "bk-039",
+          "title": "I Wonder",
+          "author": null,
+          "category": "nonfiction",
+          "spineLabel": "1 · I WONDER",
+          "identified": true,
+          "color": "#4a7ab8",
+          "notes": "Numbered reading series, vol. 1."
+        },
+        {
+          "id": "bk-040",
+          "title": "Happy Hearts",
+          "author": null,
+          "category": "nonfiction",
+          "spineLabel": "2 · HAPPY HEARTS",
+          "identified": true,
+          "color": "#6a5a9a",
+          "notes": "Numbered reading series, vol. 2."
+        },
+        {
+          "id": "bk-041",
+          "title": "Doors to Discovery",
+          "author": null,
+          "category": "nonfiction",
+          "spineLabel": "3 · DOORS TO DISCOVERY",
+          "identified": true,
+          "color": "#8a4a8a",
+          "notes": "Numbered reading series, vol. 3."
+        },
+        {
+          "id": "bk-042",
+          "title": "Bridges",
+          "author": null,
+          "category": "nonfiction",
+          "spineLabel": "4 · BRIDGES",
+          "identified": true,
+          "color": "#c45a5a",
+          "notes": "Numbered reading series, vol. 4."
+        },
+        {
+          "id": "bk-043",
+          "title": "Open Windows",
+          "author": null,
+          "category": "nonfiction",
+          "spineLabel": "5 · OPEN WINDOWS",
+          "identified": true,
+          "color": "#5a9a6a",
+          "notes": "Numbered reading series, vol. 5."
+        },
+        {
+          "id": "bk-044",
+          "title": "Calls to Success",
+          "author": null,
+          "category": "nonfiction",
+          "spineLabel": "6 · CALLS TO SUCCESS",
+          "identified": true,
+          "color": "#c8a84a",
+          "notes": "Numbered reading series, vol. 6."
+        },
+        {
+          "id": "bk-045",
+          "title": "The Road Less Traveled",
+          "author": null,
+          "category": "nonfiction",
+          "spineLabel": "7 · THE ROAD LESS TRAVELED",
+          "identified": true,
+          "color": "#3a6a8a",
+          "notes": "Numbered reading series, vol. 7 (from spine numbering)."
+        },
+        {
+          "id": "bk-046",
+          "title": "Where Roads Diverge",
+          "author": null,
+          "category": "nonfiction",
+          "spineLabel": "8 · WHERE ROADS DIVERGE",
+          "identified": true,
+          "color": "#2a5a4a",
+          "notes": "Numbered reading series, vol. 8 (from spine numbering)."
+        },
+        {
+          "id": "bk-047",
+          "title": "Summer Days with the Moodys",
+          "author": "Sarah Maxwell",
+          "category": "fiction",
+          "spineLabel": "SUMMER DAYS WITH THE MOODYS",
+          "identified": true,
+          "color": "#e8c84a"
+        },
+        {
+          "id": "bk-048",
+          "title": "Autumn Days with the Moodys",
+          "author": "Sarah Maxwell",
+          "category": "fiction",
+          "spineLabel": "AUTUMN DAYS WITH THE MOODYS",
+          "identified": true,
+          "color": "#d4783a"
+        },
+        {
+          "id": "bk-049",
+          "title": "Winter Days with the Moodys",
+          "author": "Sarah Maxwell",
+          "category": "fiction",
+          "spineLabel": "WINTER DAYS WITH THE MOODYS",
+          "identified": true,
+          "color": "#5a8a5a"
+        },
+        {
+          "id": "bk-050",
+          "title": "Spring Days with the Moodys",
+          "author": "Sarah Maxwell",
+          "category": "fiction",
+          "spineLabel": "SPRING DAYS WITH THE MOODYS",
+          "identified": true,
+          "color": "#5a8ab8"
+        }
+      ]
+    },
+    {
+      "id": "shelf-3-right",
+      "label": "Lower shelf — right",
+      "photo": "/shelves/shelf-thomas-1.jpg",
+      "books": [
+        {
+          "id": "bk-051",
+          "title": null,
+          "author": null,
+          "category": "unidentified",
+          "spineLabel": "Historical / adventure",
+          "identified": false,
+          "color": "#2a2a2e",
+          "notes": "Thin dark spine; title unclear."
+        },
+        {
+          "id": "bk-052",
+          "title": null,
+          "author": null,
+          "category": "unidentified",
+          "spineLabel": "Historical / adventure",
+          "identified": false,
+          "color": "#3a3030",
+          "notes": "Thin dark spine; title unclear."
+        },
+        {
+          "id": "bk-053",
+          "title": null,
+          "author": null,
+          "category": "unidentified",
+          "spineLabel": "Historical / adventure",
+          "identified": false,
+          "color": "#252830",
+          "notes": "Thin dark spine; title unclear."
+        },
+        {
+          "id": "bk-054",
+          "title": null,
+          "author": null,
+          "category": "unidentified",
+          "spineLabel": "Historical / adventure",
+          "identified": false,
+          "color": "#2e2a28",
+          "notes": "Thin dark spine; title unclear."
+        },
+        {
+          "id": "bk-055",
+          "title": "God's Big Story — Level 1",
+          "author": null,
+          "category": "nonfiction",
+          "spineLabel": "GOD'S BIG STORY · LEVEL 1",
+          "identified": true,
+          "color": "#7ab0d0",
+          "notes": "Thick light-blue volume."
+        },
+        {
+          "id": "bk-056",
+          "title": "God's Big Story — Level 2",
+          "author": null,
+          "category": "nonfiction",
+          "spineLabel": "GOD'S BIG STORY · LEVEL 2",
+          "identified": true,
+          "color": "#4a8a5a",
+          "notes": "Thick green volume."
+        },
+        {
+          "id": "bk-057",
+          "title": "God's Big Story — Level 3",
+          "author": null,
+          "category": "nonfiction",
+          "spineLabel": "GOD'S BIG STORY · LEVEL 3",
+          "identified": true,
+          "color": "#2a4a7a",
+          "notes": "Thick dark-blue volume."
+        },
+        {
+          "id": "bk-058",
+          "title": "God's Big Story — Level 4",
+          "author": null,
+          "category": "nonfiction",
+          "spineLabel": "GOD'S BIG STORY · LEVEL 4",
+          "identified": true,
+          "color": "#a83a3a",
+          "notes": "Thick red volume."
+        }
+      ]
+    },
+    {
+      "id": "shelf-4",
+      "label": "Bottom shelf",
+      "photo": "/shelves/shelf-thomas-1.jpg",
+      "books": [
+        {
+          "id": "bk-059",
+          "title": null,
+          "author": null,
+          "category": "unidentified",
+          "spineLabel": "Unidentified spine",
+          "identified": false,
+          "color": "#5a5048",
+          "notes": "Partially visible bottom shelf spine."
+        },
+        {
+          "id": "bk-060",
+          "title": null,
+          "author": null,
+          "category": "unidentified",
+          "spineLabel": "Unidentified spine",
+          "identified": false,
+          "color": "#6a6058",
+          "notes": "Partially visible bottom shelf spine."
+        },
+        {
+          "id": "bk-061",
+          "title": "Easy Home Repair",
+          "author": null,
+          "category": "nonfiction",
+          "spineLabel": "EASY HOME REPAIR",
+          "identified": true,
+          "color": "#2a6ab8",
+          "notes": "Bright blue how-to on the lower shelf."
         }
       ]
     }

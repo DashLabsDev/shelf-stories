@@ -29,6 +29,15 @@ npm run build    # production build
 | `public/shelves/` | Real shelf photos go here (see its README). |
 | `app/api/identify/route.ts` | Stub for the future photo → book identification pipeline (returns 501 with the planned contract). |
 
+
+### Dropping in the main / hero picture
+
+1. Save the main bookshelf photo as public/hero.jpg (or .webp / .png).
+2. Set heroPhoto to /hero.jpg in data/shelves.json.
+3. Optionally set each shelf photo for a soft backdrop.
+
+The hero banner appears when the file exists or heroPhoto is set. Keep JSON additive for more shelves.
+
 ### Swapping in real shelves
 
 1. Photograph each shelf and drop the images in `public/shelves/` (e.g. `shelf-1.jpg`).
@@ -43,7 +52,7 @@ No code changes required.
 
 ```jsonc
 {
-  "demo": true,                    // demo-data banner toggle
+  "heroPhoto": "/hero.jpg",        // or null\n  "demo": false,                   // demo-data banner toggle
   "shelves": [
     {
       "id": "shelf-1",

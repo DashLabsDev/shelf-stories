@@ -12,7 +12,7 @@ import StatsBar from "./StatsBar";
 type Filter = Category | "all";
 
 const FILTERS: { value: Filter; label: string }[] = [
-  { value: "all", label: "All" },
+  { value: "all", label: "All books" },
   { value: "fiction", label: CATEGORY_LABELS.fiction },
   { value: "fantasy-horror", label: CATEGORY_LABELS["fantasy-horror"] },
   { value: "crime-mystery", label: CATEGORY_LABELS["crime-mystery"] },
@@ -38,6 +38,11 @@ export default function Library({
     [shelves, filter]
   );
 
+  const totalVisible =
+    filter === "all"
+      ? stats.totalBooks
+      : stats.byCategory[filter];
+
   return (
     <div>
       <StatsBar stats={stats} />
@@ -45,10 +50,12 @@ export default function Library({
       <div
         role="toolbar"
         aria-label="Filter books by category"
-        className="mt-8 flex flex-wrap gap-2"
+        className="mt-10 flex flex-wrap gap-2.5"
       >
         {FILTERS.map((f) => {
           const active = filter === f.value;
+          const count =
+            f.value === "all" ? stats.totalBooks : stats.byCategory[f.value];
           return (
             <button
               key={f.value}
@@ -56,22 +63,24 @@ export default function Library({
               aria-pressed={active}
               className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${
                 active
-                  ? "border-walnut bg-walnut text-parchment"
-                  : "border-ink/20 bg-white/60 text-ink/70 hover:border-walnut/60 hover:text-ink"
+                  ? "border-sage/40 bg-sage-muted text-ink"
+                  : "border-ink/10 bg-white/50 text-ink/55 hover:border-sage/30 hover:text-ink"
               }`}
             >
               {f.label}
-              {f.value !== "all" && (
-                <span className="ml-1.5 text-xs opacity-70">
-                  {stats.byCategory[f.value]}
-                </span>
-              )}
+              <span className="ml-1.5 text-xs tabular-nums opacity-60">
+                {count}
+              </span>
             </button>
           );
         })}
       </div>
 
-      <div className="mt-10 space-y-12">
+      <p className="mt-4 text-sm text-ink/40">
+        Showing {totalVisible} {totalVisible === 1 ? "book" : "books"}
+      </p>
+
+      <div className="mt-12 space-y-14">
         {visibleShelves.map((shelf) => (
           <ShelfRow
             key={shelf.id}

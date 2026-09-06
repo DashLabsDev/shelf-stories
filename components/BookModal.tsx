@@ -26,58 +26,60 @@ export default function BookModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-ink/50 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-ink/40 p-4 backdrop-blur-[2px]"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-label={book.title ?? "Unidentified book"}
     >
       <div
-        className="w-full max-w-md overflow-hidden rounded-xl bg-parchment shadow-2xl"
+        className="w-full max-w-lg overflow-hidden rounded-2xl border border-ink/10 bg-parchment shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <div
-          className="h-3"
+          className="h-2.5"
           style={{ backgroundColor: book.color }}
           aria-hidden
         />
-        <div className="p-6">
-          <p className="text-xs uppercase tracking-widest text-walnut">
+        <div className="p-8 sm:p-10">
+          <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-sage">
             {CATEGORY_LABELS[book.category]}
           </p>
 
           {book.identified ? (
             <>
-              <h3 className="mt-2 font-display text-2xl leading-snug">
+              <h3 className="mt-3 font-display text-3xl leading-snug text-ink">
                 {book.title}
               </h3>
-              <p className="mt-1 text-ink/70">{book.author}</p>
+              {book.author && (
+                <p className="mt-2 text-lg text-ink/60">{book.author}</p>
+              )}
             </>
           ) : (
             <>
-              <h3 className="mt-2 font-display text-2xl leading-snug text-ink/70">
+              <h3 className="mt-3 font-display text-3xl leading-snug text-ink/70">
                 Unidentified spine
               </h3>
-              <p className="mt-1 text-sm text-ink/60">
+              <p className="mt-2 text-base text-ink/55">
                 Not matched to a book yet. Know it? It can be identified from
                 the shelf photo.
               </p>
             </>
           )}
 
-          <dl className="mt-5 space-y-3 border-t border-ink/10 pt-4 text-sm">
+          <dl className="mt-8 space-y-4 border-t border-ink/10 pt-6 text-base">
             <div>
-              <dt className="text-ink/50">Spine reads</dt>
-              <dd className="mt-0.5 font-mono text-[13px]">{book.spineLabel}</dd>
+              <dt className="text-sm text-ink/40">Spine reads</dt>
+              <dd className="mt-1 font-mono text-sm text-ink/80">{book.spineLabel}</dd>
             </div>
             <div>
-              <dt className="text-ink/50">Shelf</dt>
-              <dd className="mt-0.5">{shelfLabel}</dd>
+              <dt className="text-sm text-ink/40">Shelf</dt>
+              <dd className="mt-1 text-ink/80">{shelfLabel}</dd>
             </div>
             {book.notes && (
               <div>
-                <dt className="text-ink/50">Notes</dt>
-                <dd className="mt-0.5">{book.notes}</dd>
+                <dt className="text-sm text-ink/40">Notes</dt>
+                <dd className="mt-1 text-ink/80">{book.notes}</dd>
               </div>
             )}
           </dl>
@@ -85,7 +87,7 @@ export default function BookModal({
           <button
             ref={closeRef}
             onClick={onClose}
-            className="mt-6 w-full rounded-lg border border-walnut/40 py-2 text-sm text-walnut-dark transition-colors hover:bg-walnut hover:text-parchment"
+            className="mt-8 w-full rounded-full border border-ink/15 py-2.5 text-sm text-ink/70 transition-colors hover:border-sage/40 hover:bg-sage-muted hover:text-ink"
           >
             Close
           </button>

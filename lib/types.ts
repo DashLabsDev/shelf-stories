@@ -54,6 +54,8 @@ export interface Shelf {
 }
 
 export interface ShelfData {
+  /** Path to main hero photo under public/, e.g. "/hero.jpg". Null when not set. */
+  heroPhoto: string | null;
   /** True while the bundled sample data is in use; flip to false for real shelves. */
   demo: boolean;
   shelves: Shelf[];

@@ -4,20 +4,38 @@ Drop real shelf photos here, e.g.:
 
 ```
 public/shelves/shelf-1.jpg
-public/shelves/shelf-2.jpg
+public/shelves/shelf-thomas-1.jpg
 ```
 
 Then point each shelf's `photo` field in `data/shelves.json` at it:
 
 ```json
-{ "id": "shelf-1", "label": "Living Room — Top Shelf", "photo": "/shelves/shelf-1.jpg", "books": [...] }
+{ "id": "shelf-1", "label": "Top shelf — left", "photo": "/shelves/shelf-thomas-1.jpg", "books": [...] }
 ```
 
-Guidelines:
+## Main / hero picture
+
+Drop Thomas's main bookshelf picture as:
+
+```
+public/hero.jpg
+```
+
+(also accepts `hero.webp` or `hero.png`)
+
+Then set in `data/shelves.json`:
+
+```json
+{ "heroPhoto": "/hero.jpg", "demo": false, "shelves": [...] }
+```
+
+If `heroPhoto` is set **or** `public/hero.jpg` (or .webp/.png) exists, the app renders a refined hero banner above the shelves (soft vignette, caption "The bookshelf").
+
+Per-shelf `shelf.photo` still works as an optional soft backdrop behind that shelf's spines.
+
+## Guidelines
 
 - One photo per shelf row, shot straight-on so spines are readable.
-- JPEG or WebP, ideally 2000px+ on the long edge (the identify pipeline will want legible spine text).
-- Name files after the shelf `id` to keep things obvious.
-
-The current sample data uses `"photo": null` because no real photos exist yet —
-the UI renders stylized spines from the JSON either way, so photos are optional.
+- JPEG or WebP, ideally 2000px+ on the long edge.
+- Name files after the shelf `id` when possible.
+- More photos can be added later — keep the JSON additive.

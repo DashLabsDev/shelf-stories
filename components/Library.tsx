@@ -2,21 +2,20 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Book, Category, Shelf } from "@/lib/types";
-import { CATEGORIES, CATEGORY_LABELS } from "@/lib/types";
-import type { FlatBook } from "@/lib/data";
+import { CATEGORY_LABELS } from "@/lib/types";
 import { bookMatchesQuery, filterShelves, flattenBooks } from "@/lib/data";
 import ShelfRow from "./ShelfRow";
 import BookModal from "./BookModal";
 
 type Filter = Category | "all";
 
+/** Match Thomas ref chip row — always show these five; Unidentified stays out of primary row. */
 const FILTERS: { value: Filter; label: string }[] = [
   { value: "all", label: "All books" },
   { value: "fiction", label: CATEGORY_LABELS.fiction },
   { value: "fantasy-horror", label: CATEGORY_LABELS["fantasy-horror"] },
   { value: "crime-mystery", label: CATEGORY_LABELS["crime-mystery"] },
   { value: "nonfiction", label: CATEGORY_LABELS.nonfiction },
-  { value: "unidentified", label: CATEGORY_LABELS.unidentified },
 ];
 
 export default function Library({ shelves }: { shelves: Shelf[] }) {
@@ -42,15 +41,19 @@ export default function Library({ shelves }: { shelves: Shelf[] }) {
   );
 
   const filterCounts = useMemo(() => {
-    const byCategory = Object.fromEntries(
-      CATEGORIES.map((c) => [c, 0])
-    ) as Record<Category, number>;
+    const byCategory: Record<string, number> = {
+      fiction: 0,
+      "fantasy-horror": 0,
+      "crime-mystery": 0,
+      nonfiction: 0,
+      unidentified: 0,
+    };
     let total = 0;
     for (const shelf of scopedShelves) {
       for (const book of shelf.books) {
         if (!bookMatchesQuery(book, query)) continue;
         total += 1;
-        byCategory[book.category] += 1;
+        byCategory[book.category] = (byCategory[book.category] ?? 0) + 1;
       }
     }
     return { total, byCategory };
@@ -148,37 +151,41 @@ export default function Library({ shelves }: { shelves: Shelf[] }) {
         </div>
       </div>
 
-      <div className="mt-4 flex flex-wrap items-center gap-3" style={{ paddingTop: 4, paddingBottom: 8 }}>
+      <div
+        className="mt-4 flex flex-wrap items-center gap-2"
+        style={{ paddingTop: 8, paddingBottom: 12 }}
+      >
         <div
           role="toolbar"
           aria-label="Filter books by category"
-          className="flex flex-wrap gap-2"
+          className="flex flex-wrap items-center gap-1.5"
         >
           {FILTERS.map((f) => {
             const active = filter === f.value;
             const count =
               f.value === "all"
                 ? filterCounts.total
-                : filterCounts.byCategory[f.value];
-            if (f.value !== "all" && count === 0) return null;
+                : filterCounts.byCategory[f.value] ?? 0;
             return (
               <button
                 key={f.value}
                 onClick={() => setFilter(f.value)}
                 aria-pressed={active}
-                disabled={count === 0}
-                className={`rounded-md px-3 py-1.5 text-sm transition-colors ${
+                disabled={count === 0 && f.value !== "all"}
+                className={`inline-flex items-center gap-1.5 text-sm transition-colors disabled:cursor-default disabled:opacity-35 ${
                   active
-                    ? "border border-sage/30 bg-sage-muted text-ink"
-                    : "text-ink/55 hover:bg-ink/[0.04] hover:text-ink"
+                    ? "border border-[#d5dcc9] bg-[#e9ece3] text-ink"
+                    : "border border-transparent text-ink/55 hover:bg-ink/[0.04] hover:text-ink"
                 }`}
                 style={{ padding: "8px 12px", borderRadius: 6, fontSize: 14 }}
               >
                 {f.label}
                 {f.value === "all" && (
                   <span
-                    className={`ml-1.5 inline-block rounded-md px-1.5 py-0.5 text-[11px] tabular-nums ${
-                      active ? "bg-sage/20 text-ink/70" : "text-ink/40"
+                    className={`inline-flex min-w-[1.5rem] items-center justify-center rounded-full px-1.5 py-0.5 text-[11px] tabular-nums ${
+                      active
+                        ? "bg-[#d5dcc9] text-ink/75"
+                        : "bg-ink/[0.06] text-ink/40"
                     }`}
                   >
                     {count}
@@ -193,7 +200,7 @@ export default function Library({ shelves }: { shelves: Shelf[] }) {
         </p>
       </div>
 
-      <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
+      <div className="mt-1 flex flex-wrap items-center justify-between gap-2">
         <p className="text-sm text-ink/45">
           {query.trim()
             ? `${totalVisible} ${totalVisible === 1 ? "book" : "books"} found for “${query.trim()}”`
@@ -212,7 +219,7 @@ export default function Library({ shelves }: { shelves: Shelf[] }) {
         )}
       </div>
 
-      <div className="mt-8 space-y-6">
+      <div className="mt-8 space-y-7">
         {visibleShelves.length === 0 ? (
           <p className="rounded-xl border border-ink/10 bg-white/40 px-6 py-10 text-center text-sm text-ink/50">
             No books match this filter

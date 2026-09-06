@@ -30,7 +30,7 @@ const config: Config = {
         sage: {
           DEFAULT: "#7d8f6a",
           soft: "#a3b18a",
-          muted: "#e8ede0",
+          muted: "#e9ece3",
         },
         brass: "#b08d4f",
         terracotta: "#c47a5a",

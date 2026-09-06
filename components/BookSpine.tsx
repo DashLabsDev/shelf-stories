@@ -2,14 +2,23 @@
 
 import { useCallback, useRef, useState, type CSSProperties } from "react";
 import type { Book } from "@/lib/types";
-import { spineCropBackground, spineMetrics } from "@/lib/data";
+import { spineMetrics } from "@/lib/data";
 import BookCover, { textColorFor } from "./BookCover";
 
 type TipSide = "right" | "left" | "above";
 
+/** Shorten long spine labels so vertical text stays readable. */
+function spineTitle(book: Book): string {
+  const raw = book.identified
+    ? book.title ?? book.spineLabel
+    : book.spineLabel;
+  const cleaned = raw.replace(/\s+/g, " ").trim();
+  if (cleaned.length <= 42) return cleaned;
+  return cleaned.slice(0, 40).trimEnd() + "…";
+}
+
 export default function BookSpine({
   book,
-  photo,
   onClick,
 }: {
   book: Book;
@@ -18,14 +27,14 @@ export default function BookSpine({
 }) {
   const { height, width, depth, lean } = spineMetrics(book);
   const faceOut = Boolean(book.faceOut);
-  const hasCrop = Boolean(photo && book.spineCrop);
-  const label = book.identified ? book.title ?? book.spineLabel : book.spineLabel;
+  const label = spineTitle(book);
   const tipTitle = book.identified
     ? book.title ?? book.spineLabel
     : "Unidentified spine";
   const tipSub = book.identified
     ? book.author ?? "Author unknown"
     : "Needs a closer look";
+  const ink = textColorFor(book.color);
 
   const slotRef = useRef<HTMLDivElement>(null);
   const [tipSide, setTipSide] = useState<TipSide>("right");
@@ -57,14 +66,9 @@ export default function BookSpine({
     } else if (spaceAbove >= tipH + pad) {
       setTipSide("above");
     } else {
-      // Prefer the side with more room inside the bay
       setTipSide(spaceLeft > spaceRight ? "left" : "right");
     }
   }, []);
-
-  const spineStyle: CSSProperties = hasCrop
-    ? { ...spineCropBackground(photo!, book.spineCrop!), backgroundColor: book.color }
-    : { backgroundColor: book.color };
 
   const cssVars = {
     ["--book-w" as string]: `${width}px`,
@@ -99,41 +103,33 @@ export default function BookSpine({
             : `Open unidentified book, spine reads ${book.spineLabel}`
         }
       >
-        {/* front / cover */}
         <span className="book-face book-face--front" aria-hidden>
           <BookCover book={book} />
         </span>
 
-        {/* spine */}
-        <span className="book-face book-face--spine" style={spineStyle} aria-hidden>
-          {!hasCrop && (
-            <span
-              className="spine-text absolute inset-0 z-[1] flex items-center justify-center overflow-hidden px-0.5 py-3 font-display text-[11px] font-medium leading-none tracking-wide"
-              style={{ color: textColorFor(book.color), maxHeight: "calc(100% - 42px)" }}
-            >
-              <span className="max-h-full overflow-hidden text-ellipsis whitespace-nowrap">
-                {label}
-              </span>
+        {/* Spine: solid sampled color + CLEAN typographic text (never photo-garbled) */}
+        <span
+          className="book-face book-face--spine"
+          style={{ backgroundColor: book.color }}
+          aria-hidden
+        >
+          <span className="spine-label" style={{ color: ink }}>
+            <span className="spine-label__title" title={label}>
+              {label}
             </span>
-          )}
+            <span className="spine-label__mark">s.</span>
+          </span>
         </span>
 
-        {/* back */}
         <span className="book-face book-face--back" aria-hidden />
-
-        {/* pages (fore-edge) */}
         <span className="book-face book-face--pages" aria-hidden />
-
-        {/* top */}
         <span className="book-face book-face--top" aria-hidden />
-
-        {/* bottom */}
         <span className="book-face book-face--bottom" aria-hidden />
 
         {!book.identified && (
           <span
             aria-hidden
-            className="absolute -top-2 left-1/2 z-[2] -translate-x-1/2 rounded-full border border-sage/50 bg-parchment px-1 text-[10px] leading-4 text-walnut-dark shadow-sm"
+            className="absolute -top-2 left-1/2 z-[2] rounded-full border border-sage/50 bg-parchment px-1 text-[10px] leading-4 text-walnut-dark shadow-sm"
             style={{ transform: "translateX(-50%) translateZ(20px)" }}
           >
             ?

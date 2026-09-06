@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { FlatBook } from "@/lib/data";
-import { spineCropBackground } from "@/lib/data";
 import { CATEGORY_LABELS } from "@/lib/types";
 import BookCover, { textColorFor } from "./BookCover";
 
@@ -27,7 +26,6 @@ export default function BookModal({
   const book = books[index];
   const hasPrev = index > 0;
   const hasNext = index < books.length - 1;
-  const hasCrop = Boolean(book?.photo && book?.spineCrop);
   const q = book ? searchQuery(book) : "";
 
   useEffect(() => {
@@ -62,15 +60,13 @@ export default function BookModal({
 
   if (!book) return null;
 
-  const spineFace = hasCrop
-    ? spineCropBackground(book.photo!, book.spineCrop!)
-    : { backgroundColor: book.color };
-
   const about =
     book.notes?.trim() ||
     (book.identified
       ? "No synopsis recorded yet — open Goodreads for reader notes."
       : "Photographed on the shelf; identification still pending.");
+
+  const ink = textColorFor(book.color);
 
   return (
     <div
@@ -84,7 +80,7 @@ export default function BookModal({
         className="detail-dialog relative"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Left: 3D stage (~43%) */}
+        {/* Left: cream stage ~40% */}
         <div className="detail-stage flex flex-col">
           <p className="absolute left-[29px] top-[29px] z-[1] text-[11px] font-medium uppercase tracking-[0.22em] text-ink/40">
             From {book.shelfLabel}
@@ -95,33 +91,33 @@ export default function BookModal({
               className={`detail-book${showSpine ? " is-spine" : ""}`}
               style={{ ["--book-color" as string]: book.color }}
             >
-              {/* Cover face */}
               <div className="detail-face detail-face--cover">
                 {!showSpine ? (
                   <BookCover book={book} />
                 ) : (
-                  <div className="h-full w-full" style={{ backgroundColor: book.color, filter: "brightness(0.85)" }} />
+                  <div
+                    className="h-full w-full"
+                    style={{ backgroundColor: book.color, filter: "brightness(0.85)" }}
+                  />
                 )}
               </div>
 
-              {/* Spine face — primary when Show spine */}
               <div
                 className="detail-face detail-face--spine"
-                style={showSpine ? spineFace : { backgroundColor: book.color, filter: "brightness(0.78)" }}
+                style={{ backgroundColor: book.color }}
               >
-                {showSpine && !hasCrop && (
-                  <span
-                    className="spine-text absolute inset-0 z-[1] flex items-center justify-center overflow-hidden px-0.5 py-4 font-display text-[13px] font-medium"
-                    style={{ color: textColorFor(book.color) }}
-                  >
-                    <span className="max-h-full overflow-hidden text-ellipsis whitespace-nowrap">
-                      {book.spineLabel}
-                    </span>
+                <span
+                  className="spine-text absolute inset-0 z-[1] flex items-center justify-center overflow-hidden px-0.5 py-4 font-display text-[12px] font-semibold"
+                  style={{ color: ink }}
+                >
+                  <span className="max-h-full overflow-hidden text-ellipsis whitespace-nowrap">
+                    {book.identified
+                      ? book.title ?? book.spineLabel
+                      : book.spineLabel}
                   </span>
-                )}
+                </span>
               </div>
 
-              {/* Pages edge */}
               <div className="detail-face detail-face--pages" aria-hidden />
             </div>
 
@@ -130,7 +126,7 @@ export default function BookModal({
             <button
               type="button"
               onClick={() => setShowSpine((v) => !v)}
-              className="mt-5 inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white/50 px-3.5 py-1.5 text-sm text-ink/60 shadow-sm transition hover:border-ink/20 hover:bg-white/80 hover:text-ink"
+              className="mt-5 inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white/60 px-3.5 py-1.5 text-sm text-ink/60 shadow-sm transition hover:border-ink/20 hover:bg-white/90 hover:text-ink"
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
                 <path
@@ -147,7 +143,7 @@ export default function BookModal({
           </div>
         </div>
 
-        {/* Right: content (~57%) */}
+        {/* Right: white content ~60% */}
         <div className="detail-content relative">
           <button
             ref={closeRef}
@@ -161,7 +157,10 @@ export default function BookModal({
             </svg>
           </button>
 
-          <p className="inline-flex w-fit rounded-md bg-sage-muted px-2 py-0.5 text-xs text-ink/70">
+          <p
+            className="inline-flex w-fit rounded-md px-2.5 py-0.5 text-xs text-ink/70"
+            style={{ background: "#e9ece3" }}
+          >
             {CATEGORY_LABELS[book.category]}
           </p>
 
@@ -199,35 +198,50 @@ export default function BookModal({
 
           <div className="detail-meta">
             <div>
-              <p className="text-[11px] uppercase tracking-[0.16em] text-ink/40">Published</p>
+              <p className="text-[11px] uppercase tracking-[0.16em] text-ink/40">
+                Published
+              </p>
               <p className="mt-1 text-sm text-ink/80">
                 {book.year ?? (book.publisher ? "—" : "Unknown")}
-                {book.publisher ? (book.year ? ` · ${book.publisher}` : book.publisher) : ""}
+                {book.publisher
+                  ? book.year
+                    ? ` · ${book.publisher}`
+                    : book.publisher
+                  : ""}
               </p>
             </div>
             <div>
-              <p className="text-[11px] uppercase tracking-[0.16em] text-ink/40">Location</p>
+              <p className="text-[11px] uppercase tracking-[0.16em] text-ink/40">
+                Location
+              </p>
               <p className="mt-1 text-sm text-ink/80">
-                {book.shelfLabel} · Book {String(book.positionInShelf).padStart(2, "0")}
+                {book.shelfLabel} · Book{" "}
+                {String(book.positionInShelf).padStart(2, "0")}
               </p>
             </div>
             <div>
-              <p className="text-[11px] uppercase tracking-[0.16em] text-ink/40">Identification</p>
-              <p className={`mt-1 text-sm ${book.identified ? "text-sage" : "text-ink/60"}`}>
+              <p className="text-[11px] uppercase tracking-[0.16em] text-ink/40">
+                Identification
+              </p>
+              <p
+                className={`mt-1 text-sm ${
+                  book.identified ? "text-sage" : "text-ink/60"
+                }`}
+              >
                 {book.identified ? "✓ Matched to photo" : "Needs a closer look"}
               </p>
             </div>
           </div>
 
           {book.identified && book.title && (
-            <div className="mt-6">
+            <div>
               <a
                 href={`https://www.goodreads.com/search?q=${q}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex w-full items-center justify-between gap-3 rounded-lg bg-chocolate px-4 py-3 text-sm font-medium text-parchment transition hover:bg-chocolate-soft"
+                className="detail-cta"
               >
-                <span className="inline-flex items-center gap-2">
+                <span className="inline-flex items-center gap-2.5">
                   <span className="flex h-6 w-6 items-center justify-center rounded-full bg-parchment/15 text-xs">
                     g
                   </span>
@@ -235,9 +249,6 @@ export default function BookModal({
                 </span>
                 <span aria-hidden>↗</span>
               </a>
-              <p className="mt-2 text-center text-xs text-ink/40">
-                Reviews, ratings, and reader recommendations.
-              </p>
               <a
                 href={`https://openlibrary.org/search?q=${q}`}
                 target="_blank"
@@ -258,7 +269,7 @@ export default function BookModal({
               disabled={!hasPrev}
               onClick={() => onNavigate(index - 1)}
               aria-label="Previous book"
-              className="flex h-9 w-[36px] items-center justify-center rounded-md border border-ink/15 text-ink/70 transition enabled:hover:border-sage/40 enabled:hover:bg-sage-muted disabled:opacity-30"
+              className="flex h-9 w-[36px] items-center justify-center rounded-md border border-ink/15 text-ink/70 transition enabled:hover:border-sage/40 enabled:hover:bg-[#e9ece3] disabled:opacity-30"
             >
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden>
                 <path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
@@ -269,7 +280,7 @@ export default function BookModal({
               disabled={!hasNext}
               onClick={() => onNavigate(index + 1)}
               aria-label="Next book"
-              className="flex h-9 w-[36px] items-center justify-center rounded-md border border-ink/15 text-ink/70 transition enabled:hover:border-sage/40 enabled:hover:bg-sage-muted disabled:opacity-30"
+              className="flex h-9 w-[36px] items-center justify-center rounded-md border border-ink/15 text-ink/70 transition enabled:hover:border-sage/40 enabled:hover:bg-[#e9ece3] disabled:opacity-30"
             >
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden>
                 <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />

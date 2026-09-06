@@ -112,34 +112,39 @@ export function spineMetrics(book: Book): SpineMetrics {
   for (let i = 0; i < book.id.length; i++) {
     hash = (hash * 31 + book.id.charCodeAt(i)) & 0xffff;
   }
-  const height = 172 + (hash % 54); // 172–225
-  const width = 116 + ((hash >> 2) % 40); // 116–155 cover width
+  // Varied heights for organic top line (ref: dense photoreal spines)
+  const height = 168 + (hash % 58); // 168–225
+  const width = 118 + ((hash >> 2) % 38); // 118–155 cover width
 
-  // Spine thickness from crop (tighter fidelity) or hash.
+  // Chunkier hardcover/paperback depths — never wafer-thin paper.
+  // Floor 22px pamphlets / 24px books; typical 26–36; hefty to ~44.
   let depth: number;
   if (book.spineCrop) {
-    // Photo crop width ≈ percent of shelf; map to physical mm-ish px.
-    depth = Math.max(12, Math.min(44, Math.round(book.spineCrop.w * 6.2)));
+    depth = Math.round(22 + book.spineCrop.w * 1.55 + ((hash >> 3) % 4));
   } else {
-    depth = 14 + ((hash >> 4) % 22); // 14–35
+    depth = 26 + ((hash >> 4) % 12); // 26–37
   }
+  const isPamphlet =
+    !book.identified ||
+    /reader|papers|binder|curriculum|envelopes/i.test(book.spineLabel);
+  const floor = isPamphlet ? 22 : 24;
+  depth = Math.max(floor, Math.min(44, depth));
 
-  // More frequent / wider lean for lived-in rows (~55% lean).
+  // Lived-in lean (~40% lean lightly; occasional stronger)
   const leanRoll = hash % 100;
   let lean = 0;
-  if (leanRoll < 55) {
-    const mag = 2 + ((hash >> 6) % 8); // 2–9°
+  if (leanRoll < 40) {
+    const mag = 1 + ((hash >> 6) % 5); // 1–5°
     lean = (hash >> 9) % 2 === 0 ? -mag : mag;
-    // Occasional stronger tilt toward neighbors
-    if (leanRoll < 12) lean = lean > 0 ? lean + 3 : lean - 3;
+    if (leanRoll < 8) lean = lean > 0 ? lean + 2 : lean - 2;
   }
 
   if (book.faceOut) {
     return {
-      height: Math.max(height, 188),
-      width: 100 + ((hash >> 4) % 32),
-      depth: Math.max(depth, 22),
-      lean: lean === 0 ? -2 : Math.max(-6, Math.min(4, lean)),
+      height: Math.max(height, 196),
+      width: 110 + ((hash >> 4) % 28),
+      depth: Math.max(depth, 30),
+      lean: lean === 0 ? -2 : Math.max(-5, Math.min(3, lean)),
     };
   }
   return { height, width, depth, lean };

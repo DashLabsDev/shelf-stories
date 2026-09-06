@@ -48,51 +48,54 @@ export default function ShelfRow({
   if (shelf.books.length === 0) return null;
 
   const needsNav = showNav && shelf.books.length > 8;
+  const n = shelf.books.length;
 
   return (
     <section aria-label={shelf.label} className="relative">
       <div className="shelf-bay">
-        {needsNav && (
-          <div className="shelf-nav">
-            <button
-              type="button"
-              aria-label={`Scroll ${shelf.label} left`}
-              disabled={!canPrev}
-              onClick={() => scrollByDir(-1)}
-            >
-              <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden>
-                <path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-            <button
-              type="button"
-              aria-label={`Scroll ${shelf.label} right`}
-              disabled={!canNext}
-              onClick={() => scrollByDir(1)}
-            >
-              <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden>
-                <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-          </div>
-        )}
+        <div className="shelf-bay-inner">
+          {needsNav && (
+            <div className="shelf-nav">
+              <button
+                type="button"
+                aria-label={`Scroll ${shelf.label} left`}
+                disabled={!canPrev}
+                onClick={() => scrollByDir(-1)}
+              >
+                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden>
+                  <path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                aria-label={`Scroll ${shelf.label} right`}
+                disabled={!canNext}
+                onClick={() => scrollByDir(1)}
+              >
+                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden>
+                  <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </div>
+          )}
 
-        <div ref={railRef} className="book-row">
-          {shelf.books.map((book) => (
-            <BookSpine
-              key={book.id}
-              book={book}
-              photo={shelf.photo}
-              onClick={() => onSelect(book)}
-            />
-          ))}
+          <div ref={railRef} className="book-row">
+            {shelf.books.map((book) => (
+              <BookSpine
+                key={book.id}
+                book={book}
+                photo={shelf.photo}
+                onClick={() => onSelect(book)}
+              />
+            ))}
+          </div>
         </div>
 
         <div className="shelf-board">
           <p className="shelf-plaque">
             {shelf.label}
-            <span className="mx-1.5 opacity-40">/</span>
-            {shelf.books.length} {shelf.books.length === 1 ? "book" : "books"}
+            <span className="mx-1.5 opacity-45">/</span>
+            {n} {n === 1 ? "book" : "books"}
           </p>
         </div>
       </div>

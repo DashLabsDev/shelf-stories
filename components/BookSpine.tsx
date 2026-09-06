@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef, useState, type CSSProperties } from "react";
+import { useCallback, useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
 import type { Book } from "@/lib/types";
 import { spineMetrics } from "@/lib/data";
 import BookCover, { textColorFor } from "./BookCover";
@@ -59,16 +59,36 @@ export default function BookSpine({
       ? slotRect.top - bayRect.top
       : slotRect.top;
 
+    let next: TipSide;
     if (spaceRight >= tipW + pad) {
-      setTipSide("right");
+      next = "right";
     } else if (spaceLeft >= tipW + pad) {
-      setTipSide("left");
+      next = "left";
     } else if (spaceAbove >= tipH + pad) {
-      setTipSide("above");
+      next = "above";
     } else {
-      setTipSide(spaceLeft > spaceRight ? "left" : "right");
+      next = spaceLeft > spaceRight ? "left" : "right";
     }
+    setTipSide((prev) => (prev === next ? prev : next));
   }, []);
+
+  /** Reliable open — slot hit area, not the 3D mesh (avoids miss-clicks). */
+  const open = useCallback(
+    (e?: { preventDefault?: () => void; stopPropagation?: () => void }) => {
+      e?.preventDefault?.();
+      e?.stopPropagation?.();
+      onClick();
+    },
+    [onClick]
+  );
+
+  const onKey = (e: KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      e.stopPropagation();
+      onClick();
+    }
+  };
 
   const cssVars = {
     ["--book-w" as string]: `${width}px`,
@@ -85,33 +105,34 @@ export default function BookSpine({
         ? "book-tip book-tip--above"
         : "book-tip";
 
+  const aria = book.identified
+    ? `Open ${book.title ?? book.spineLabel}${book.author ? ` by ${book.author}` : ""}`
+    : `Open unidentified book, spine reads ${book.spineLabel}`;
+
   return (
     <div
       ref={slotRef}
       className={`book-slot${faceOut ? " book-slot--faceout" : ""}`}
       style={cssVars}
+      role="button"
+      tabIndex={0}
+      aria-label={aria}
       onMouseEnter={placeTip}
       onFocus={placeTip}
+      onClick={open}
+      onKeyDown={onKey}
     >
-      <button
-        type="button"
-        className="book-object outline-offset-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-sage"
-        onClick={onClick}
-        aria-label={
-          book.identified
-            ? `Open ${book.title ?? book.spineLabel}${book.author ? ` by ${book.author}` : ""}`
-            : `Open unidentified book, spine reads ${book.spineLabel}`
-        }
-      >
-        <span className="book-face book-face--front" aria-hidden>
+      <span className="book-slot__shadow" aria-hidden />
+
+      {/* Visual-only 3D mesh — pointer-events none so clicks hit the slot */}
+      <div className="book-object" aria-hidden>
+        <span className="book-face book-face--front">
           <BookCover book={book} />
         </span>
 
-        {/* Spine: solid sampled color + CLEAN typographic text (never photo-garbled) */}
         <span
           className="book-face book-face--spine"
           style={{ backgroundColor: book.color }}
-          aria-hidden
         >
           <span className="spine-label" style={{ color: ink }}>
             <span className="spine-label__title" title={label}>
@@ -121,21 +142,20 @@ export default function BookSpine({
           </span>
         </span>
 
-        <span className="book-face book-face--back" aria-hidden />
-        <span className="book-face book-face--pages" aria-hidden />
-        <span className="book-face book-face--top" aria-hidden />
-        <span className="book-face book-face--bottom" aria-hidden />
+        <span className="book-face book-face--back" />
+        <span className="book-face book-face--pages" />
+        <span className="book-face book-face--top" />
+        <span className="book-face book-face--bottom" />
 
         {!book.identified && (
           <span
-            aria-hidden
             className="absolute -top-2 left-1/2 z-[2] rounded-full border border-sage/50 bg-parchment px-1 text-[10px] leading-4 text-walnut-dark shadow-sm"
             style={{ transform: "translateX(-50%) translateZ(20px)" }}
           >
             ?
           </span>
         )}
-      </button>
+      </div>
 
       <div className={tipClass} role="tooltip">
         <strong>{tipTitle}</strong>

@@ -16,6 +16,7 @@ export default function ShelfRow({
   const railRef = useRef<HTMLDivElement>(null);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(false);
+  const scrollingRef = useRef(false);
 
   const updateArrows = useCallback(() => {
     const el = railRef.current;
@@ -38,11 +39,38 @@ export default function ShelfRow({
     };
   }, [updateArrows, shelf.books.length]);
 
+  /** Smooth page scroll without snap fighting; rAF-coalesce double-clicks. */
   const scrollByDir = (dir: -1 | 1) => {
     const el = railRef.current;
-    if (!el) return;
+    if (!el || scrollingRef.current) return;
+    const max = el.scrollWidth - el.clientWidth;
+    if (max <= 4) return;
+
     const amount = Math.max(280, Math.floor(el.clientWidth * 0.85));
-    el.scrollBy({ left: dir * amount, behavior: "smooth" });
+    const target = Math.max(0, Math.min(max, el.scrollLeft + dir * amount));
+    if (Math.abs(target - el.scrollLeft) < 2) return;
+
+    scrollingRef.current = true;
+    el.scrollTo({ left: target, behavior: "smooth" });
+
+    let frames = 0;
+    let last = el.scrollLeft;
+    const watch = () => {
+      frames += 1;
+      const cur = el.scrollLeft;
+      if (
+        Math.abs(cur - target) < 2 ||
+        (frames > 8 && cur === last) ||
+        frames > 90
+      ) {
+        scrollingRef.current = false;
+        updateArrows();
+        return;
+      }
+      last = cur;
+      requestAnimationFrame(watch);
+    };
+    requestAnimationFrame(watch);
   };
 
   if (shelf.books.length === 0) return null;

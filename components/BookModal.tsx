@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { FlatBook } from "@/lib/data";
 import { CATEGORY_LABELS } from "@/lib/types";
 import BookCover, { textColorFor } from "./BookCover";
@@ -21,15 +21,31 @@ export default function BookModal({
   onClose: () => void;
   onNavigate: (nextIndex: number) => void;
 }) {
+  const dialogRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const [showSpine, setShowSpine] = useState(false);
+  const [leaving, setLeaving] = useState(false);
   const book = books[index];
   const hasPrev = index > 0;
   const hasNext = index < books.length - 1;
   const q = book ? searchQuery(book) : "";
 
+  const requestClose = useCallback(() => {
+    if (leaving) return;
+    const reduce =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) {
+      onClose();
+      return;
+    }
+    setLeaving(true);
+    window.setTimeout(() => onClose(), 280);
+  }, [leaving, onClose]);
+
   useEffect(() => {
     setShowSpine(false);
+    setLeaving(false);
     closeRef.current?.focus();
   }, [index]);
 
@@ -37,7 +53,7 @@ export default function BookModal({
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         e.preventDefault();
-        onClose();
+        requestClose();
         return;
       }
       if (e.key === "ArrowLeft" && hasPrev) {
@@ -48,6 +64,22 @@ export default function BookModal({
         e.preventDefault();
         onNavigate(index + 1);
       }
+      // Focus trap
+      if (e.key === "Tab" && dialogRef.current) {
+        const focusable = dialogRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
     window.addEventListener("keydown", onKey);
     const prev = document.body.style.overflow;
@@ -56,7 +88,7 @@ export default function BookModal({
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = prev;
     };
-  }, [onClose, onNavigate, index, hasPrev, hasNext]);
+  }, [requestClose, onNavigate, index, hasPrev, hasNext]);
 
   if (!book) return null;
 
@@ -70,13 +102,14 @@ export default function BookModal({
 
   return (
     <div
-      className="detail-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-[1px] sm:p-8"
-      onClick={onClose}
+      className={`detail-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-[1px] sm:p-8${leaving ? " is-leaving" : ""}`}
+      onClick={requestClose}
       role="dialog"
       aria-modal="true"
       aria-label={book.title ?? "Unidentified book"}
     >
       <div
+        ref={dialogRef}
         className="detail-dialog relative"
         onClick={(e) => e.stopPropagation()}
       >
@@ -92,14 +125,7 @@ export default function BookModal({
               style={{ ["--book-color" as string]: book.color }}
             >
               <div className="detail-face detail-face--cover">
-                {!showSpine ? (
-                  <BookCover book={book} />
-                ) : (
-                  <div
-                    className="h-full w-full"
-                    style={{ backgroundColor: book.color, filter: "brightness(0.85)" }}
-                  />
-                )}
+                <BookCover book={book} />
               </div>
 
               <div
@@ -148,7 +174,7 @@ export default function BookModal({
           <button
             ref={closeRef}
             type="button"
-            onClick={onClose}
+            onClick={requestClose}
             aria-label="Close"
             className="absolute right-5 top-5 flex h-[34px] w-[34px] items-center justify-center rounded-full border border-ink/12 text-ink/50 transition hover:bg-ink/[0.04] hover:text-ink"
           >

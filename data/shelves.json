@@ -12,10 +12,10 @@
           "title": "Lakewood High School 1996 Volume 24",
           "author": "Lakewood High School",
           "category": "nonfiction",
-          "spineLabel": "LAKEWOOD HIGH SCHOOL 1996 · VOLUME 24",
+          "spineLabel": "LAKEWOOD HIGH SCHOOL 1996 \u00b7 VOLUME 24",
           "identified": true,
           "color": "#1a1a1a",
-          "notes": "Lakewood High School's 1996 yearbook (Volume 24) — a hardcover keepsake of one school year, with gold lettering on a black spine.",
+          "notes": "Lakewood High School's 1996 yearbook (Volume 24) \u2014 a hardcover keepsake of one school year, with gold lettering on a black spine.",
           "spineCrop": {
             "x": 5,
             "y": 9.8,
@@ -293,7 +293,7 @@
           },
           "year": 1940,
           "publisher": "Macmillan",
-          "notes": "Newbery Medal story of Mafatu, a Polynesian boy who faces the sea — and his fear — to prove his courage."
+          "notes": "Newbery Medal story of Mafatu, a Polynesian boy who faces the sea \u2014 and his fear \u2014 to prove his courage."
         },
         {
           "id": "bk-018",
@@ -311,8 +311,7 @@
           },
           "year": 1956,
           "publisher": "Harcourt",
-          "notes": "A family moves to a Pennsylvania maple farm; Marly discovers that miracles can be quiet, seasonal, and close to home.",
-          "faceOut": true
+          "notes": "A family moves to a Pennsylvania maple farm; Marly discovers that miracles can be quiet, seasonal, and close to home."
         },
         {
           "id": "bk-019",
@@ -330,8 +329,7 @@
           },
           "year": 1943,
           "publisher": "Viking Press",
-          "notes": "Robert McCloskey's classic Midwestern tall tales of Homer Price, doughnuts, and small-town invention.",
-          "faceOut": true
+          "notes": "Robert McCloskey's classic Midwestern tall tales of Homer Price, doughnuts, and small-town invention."
         },
         {
           "id": "bk-020",
@@ -433,8 +431,7 @@
           },
           "year": 1935,
           "publisher": "Harper & Brothers",
-          "faceOut": true,
-          "notes": "The Ingalls family leaves the Big Woods for Indian Territory — a prairie claim, a log house, and an uncertain frontier."
+          "notes": "The Ingalls family leaves the Big Woods for Indian Territory \u2014 a prairie claim, a log house, and an uncertain frontier."
         },
         {
           "id": "bk-026",
@@ -452,7 +449,7 @@
           },
           "year": 1933,
           "publisher": "Harper & Brothers",
-          "notes": "Almanzo Wilder's boyhood on a New York farm — chores, horses, and the making of a farmer."
+          "notes": "Almanzo Wilder's boyhood on a New York farm \u2014 chores, horses, and the making of a farmer."
         },
         {
           "id": "bk-027",
@@ -524,7 +521,7 @@
           },
           "year": 1941,
           "publisher": "Harper & Brothers",
-          "notes": "Laura comes of age in De Smet — school, town life, and the first turns toward independence."
+          "notes": "Laura comes of age in De Smet \u2014 school, town life, and the first turns toward independence."
         },
         {
           "id": "bk-031",
@@ -560,7 +557,7 @@
           },
           "year": 1971,
           "publisher": "Harper & Row",
-          "notes": "The early married years of Laura and Almanzo — drought, illness, and the birth of Rose."
+          "notes": "The early married years of Laura and Almanzo \u2014 drought, illness, and the birth of Rose."
         },
         {
           "id": "bk-033",
@@ -632,8 +629,7 @@
           },
           "year": 1956,
           "publisher": "W. W. Norton",
-          "notes": "Back west on a Colorado ranch, Ralph learns cattle work and the craft of horsemanship.",
-          "faceOut": true
+          "notes": "Back west on a Colorado ranch, Ralph learns cattle work and the craft of horsemanship."
         },
         {
           "id": "bk-037",
@@ -651,7 +647,7 @@
           },
           "year": 1963,
           "publisher": "W. W. Norton",
-          "notes": "Ralph strikes out on his own across the dry plains — risk, labor, and hard-won independence."
+          "notes": "Ralph strikes out on his own across the dry plains \u2014 risk, labor, and hard-won independence."
         },
         {
           "id": "bk-038",
@@ -683,7 +679,7 @@
           "title": "I Wonder",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "1 · I WONDER",
+          "spineLabel": "1 \u00b7 I WONDER",
           "identified": true,
           "color": "#4a7ab8",
           "notes": "Numbered reading series, vol. 1.",
@@ -699,7 +695,7 @@
           "title": "Happy Hearts",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "2 · HAPPY HEARTS",
+          "spineLabel": "2 \u00b7 HAPPY HEARTS",
           "identified": true,
           "color": "#6a5a9a",
           "notes": "Numbered reading series, vol. 2.",
@@ -716,7 +712,7 @@
           "title": "Doors to Discovery",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "3 · DOORS TO DISCOVERY",
+          "spineLabel": "3 \u00b7 DOORS TO DISCOVERY",
           "identified": true,
           "color": "#8a4a8a",
           "notes": "Numbered reading series, vol. 3.",
@@ -732,7 +728,7 @@
           "title": "Bridges",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "4 · BRIDGES",
+          "spineLabel": "4 \u00b7 BRIDGES",
           "identified": true,
           "color": "#c45a5a",
           "notes": "Numbered reading series, vol. 4.",
@@ -748,7 +744,7 @@
           "title": "Open Windows",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "5 · OPEN WINDOWS",
+          "spineLabel": "5 \u00b7 OPEN WINDOWS",
           "identified": true,
           "color": "#5a9a6a",
           "notes": "Numbered reading series, vol. 5.",
@@ -764,7 +760,7 @@
           "title": "Calls to Success",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "6 · CALLS TO SUCCESS",
+          "spineLabel": "6 \u00b7 CALLS TO SUCCESS",
           "identified": true,
           "color": "#c8a84a",
           "notes": "Numbered reading series, vol. 6.",
@@ -780,7 +776,7 @@
           "title": "The Road Less Traveled",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "7 · THE ROAD LESS TRAVELED",
+          "spineLabel": "7 \u00b7 THE ROAD LESS TRAVELED",
           "identified": true,
           "color": "#3a6a8a",
           "notes": "Numbered reading series, vol. 7 (from spine numbering).",
@@ -796,7 +792,7 @@
           "title": "Where Roads Diverge",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "8 · WHERE ROADS DIVERGE",
+          "spineLabel": "8 \u00b7 WHERE ROADS DIVERGE",
           "identified": true,
           "color": "#2a5a4a",
           "notes": "Numbered reading series, vol. 8 (from spine numbering).",
@@ -837,7 +833,7 @@
             "w": 5.18,
             "h": 16.4
           },
-          "notes": "Autumn with the Moodys — harvest rhythms, cooler days, and household stories for young readers."
+          "notes": "Autumn with the Moodys \u2014 harvest rhythms, cooler days, and household stories for young readers."
         },
         {
           "id": "bk-049",
@@ -937,27 +933,26 @@
         },
         {
           "id": "bk-055",
-          "title": "God's Big Story — Level 1",
+          "title": "God's Big Story \u2014 Level 1",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "GOD'S BIG STORY · LEVEL 1",
+          "spineLabel": "GOD'S BIG STORY \u00b7 LEVEL 1",
           "identified": true,
           "color": "#7ab0d0",
-          "notes": "Level 1 of a graded Bible-story curriculum — thick light-blue volume retelling scripture narratives for early readers.",
+          "notes": "Level 1 of a graded Bible-story curriculum \u2014 thick light-blue volume retelling scripture narratives for early readers.",
           "spineCrop": {
             "x": 73.73,
             "y": 51.8,
             "w": 4.47,
             "h": 16.4
-          },
-          "faceOut": true
+          }
         },
         {
           "id": "bk-056",
-          "title": "God's Big Story — Level 2",
+          "title": "God's Big Story \u2014 Level 2",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "GOD'S BIG STORY · LEVEL 2",
+          "spineLabel": "GOD'S BIG STORY \u00b7 LEVEL 2",
           "identified": true,
           "color": "#4a8a5a",
           "notes": "Level 2 continues God's Big Story with longer passages and a green spine for the next reading stage.",
@@ -970,10 +965,10 @@
         },
         {
           "id": "bk-057",
-          "title": "God's Big Story — Level 3",
+          "title": "God's Big Story \u2014 Level 3",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "GOD'S BIG STORY · LEVEL 3",
+          "spineLabel": "GOD'S BIG STORY \u00b7 LEVEL 3",
           "identified": true,
           "color": "#2a4a7a",
           "notes": "Level 3 deepens the Bible narrative sequence for growing readers; thick dark-blue binding.",
@@ -982,15 +977,14 @@
             "y": 51.8,
             "w": 4.47,
             "h": 16.4
-          },
-          "faceOut": true
+          }
         },
         {
           "id": "bk-058",
-          "title": "God's Big Story — Level 4",
+          "title": "God's Big Story \u2014 Level 4",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "GOD'S BIG STORY · LEVEL 4",
+          "spineLabel": "GOD'S BIG STORY \u00b7 LEVEL 4",
           "identified": true,
           "color": "#a83a3a",
           "notes": "Level 4 completes the graded set with fuller stories and a thick red volume.",

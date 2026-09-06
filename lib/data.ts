@@ -127,7 +127,8 @@ export function spineMetrics(book: Book): SpineMetrics {
   const isPamphlet =
     !book.identified ||
     /reader|papers|binder|curriculum|envelopes/i.test(book.spineLabel);
-  const floor = isPamphlet ? 22 : 24;
+  // Chunky closed-book spines — never wafer-thin open cards
+  const floor = isPamphlet ? 24 : 26;
   depth = Math.max(floor, Math.min(44, depth));
 
   // Lived-in lean (~40% lean lightly; occasional stronger)

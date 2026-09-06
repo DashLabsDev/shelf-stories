@@ -1,9 +1,11 @@
 "use client";
 
-import type { CSSProperties } from "react";
+import { useCallback, useRef, useState, type CSSProperties } from "react";
 import type { Book } from "@/lib/types";
 import { spineCropBackground, spineMetrics } from "@/lib/data";
 import BookCover, { textColorFor } from "./BookCover";
+
+type TipSide = "right" | "left" | "above";
 
 export default function BookSpine({
   book,
@@ -25,6 +27,41 @@ export default function BookSpine({
     ? book.author ?? "Author unknown"
     : "Needs a closer look";
 
+  const slotRef = useRef<HTMLDivElement>(null);
+  const [tipSide, setTipSide] = useState<TipSide>("right");
+
+  const placeTip = useCallback(() => {
+    const el = slotRef.current;
+    if (!el) return;
+    const bay = el.closest(".book-row") as HTMLElement | null;
+    const slotRect = el.getBoundingClientRect();
+    const bayRect = bay?.getBoundingClientRect();
+    const tipW = 240;
+    const tipH = 64;
+    const pad = 10;
+
+    const spaceRight = bayRect
+      ? bayRect.right - slotRect.right
+      : window.innerWidth - slotRect.right;
+    const spaceLeft = bayRect
+      ? slotRect.left - bayRect.left
+      : slotRect.left;
+    const spaceAbove = bayRect
+      ? slotRect.top - bayRect.top
+      : slotRect.top;
+
+    if (spaceRight >= tipW + pad) {
+      setTipSide("right");
+    } else if (spaceLeft >= tipW + pad) {
+      setTipSide("left");
+    } else if (spaceAbove >= tipH + pad) {
+      setTipSide("above");
+    } else {
+      // Prefer the side with more room inside the bay
+      setTipSide(spaceLeft > spaceRight ? "left" : "right");
+    }
+  }, []);
+
   const spineStyle: CSSProperties = hasCrop
     ? { ...spineCropBackground(photo!, book.spineCrop!), backgroundColor: book.color }
     : { backgroundColor: book.color };
@@ -37,10 +74,20 @@ export default function BookSpine({
     ["--book-color" as string]: book.color,
   } as CSSProperties;
 
+  const tipClass =
+    tipSide === "left"
+      ? "book-tip book-tip--left"
+      : tipSide === "above"
+        ? "book-tip book-tip--above"
+        : "book-tip";
+
   return (
     <div
+      ref={slotRef}
       className={`book-slot${faceOut ? " book-slot--faceout" : ""}`}
       style={cssVars}
+      onMouseEnter={placeTip}
+      onFocus={placeTip}
     >
       <button
         type="button"
@@ -94,7 +141,7 @@ export default function BookSpine({
         )}
       </button>
 
-      <div className="book-tip" role="tooltip">
+      <div className={tipClass} role="tooltip">
         <strong>{tipTitle}</strong>
         <span>{tipSub}</span>
       </div>

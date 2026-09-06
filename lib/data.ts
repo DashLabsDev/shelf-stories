@@ -105,28 +105,42 @@ export interface SpineMetrics {
  * Metrics for CSS 3D book meshes.
  * Slot width = depth; object size = width x height x depth.
  * Defaults ≈ 140 / 210 / 30 per REBUILD-SPEC.
+ * Lean + depth tuned for denser photoreal variation.
  */
 export function spineMetrics(book: Book): SpineMetrics {
   let hash = 0;
   for (let i = 0; i < book.id.length; i++) {
     hash = (hash * 31 + book.id.charCodeAt(i)) & 0xffff;
   }
-  const height = 178 + (hash % 48); // 178–225
-  const width = 118 + ((hash >> 2) % 36); // 118–153 cover width
+  const height = 172 + (hash % 54); // 172–225
+  const width = 116 + ((hash >> 2) % 40); // 116–155 cover width
 
-  // Spine thickness from crop, or hash; denser continuous rows.
+  // Spine thickness from crop (tighter fidelity) or hash.
   let depth: number;
   if (book.spineCrop) {
-    depth = Math.max(14, Math.min(42, Math.round(book.spineCrop.w * 5.6)));
+    // Photo crop width ≈ percent of shelf; map to physical mm-ish px.
+    depth = Math.max(12, Math.min(44, Math.round(book.spineCrop.w * 6.2)));
   } else {
-    depth = 16 + ((hash >> 4) % 20); // 16–35
+    depth = 14 + ((hash >> 4) % 22); // 14–35
   }
 
-  const leanSeed = (hash >> 3) % 20;
-  const lean = leanSeed < 5 ? ((hash >> 9) % 13) - 6 : 0; // −6…+6
+  // More frequent / wider lean for lived-in rows (~55% lean).
+  const leanRoll = hash % 100;
+  let lean = 0;
+  if (leanRoll < 55) {
+    const mag = 2 + ((hash >> 6) % 8); // 2–9°
+    lean = (hash >> 9) % 2 === 0 ? -mag : mag;
+    // Occasional stronger tilt toward neighbors
+    if (leanRoll < 12) lean = lean > 0 ? lean + 3 : lean - 3;
+  }
 
   if (book.faceOut) {
-    return { height, width: 96 + ((hash >> 4) % 28), depth, lean: -2 };
+    return {
+      height: Math.max(height, 188),
+      width: 100 + ((hash >> 4) % 32),
+      depth: Math.max(depth, 22),
+      lean: lean === 0 ? -2 : Math.max(-6, Math.min(4, lean)),
+    };
   }
   return { height, width, depth, lean };
 }
@@ -138,8 +152,11 @@ export function spineCropBackground(
 ): CSSProperties {
   const sizeX = 100 / (crop.w / 100);
   const sizeY = 100 / (crop.h / 100);
-  const posX = crop.w >= 99.9 ? 0 : (crop.x / (100 - crop.w)) * 100;
-  const posY = crop.h >= 99.9 ? 0 : (crop.y / (100 - crop.h)) * 100;
+  // Clamp positions so narrow crops don't drift off-edge
+  const denomX = Math.max(0.01, 100 - crop.w);
+  const denomY = Math.max(0.01, 100 - crop.h);
+  const posX = crop.w >= 99.9 ? 0 : Math.max(0, Math.min(100, (crop.x / denomX) * 100));
+  const posY = crop.h >= 99.9 ? 0 : Math.max(0, Math.min(100, (crop.y / denomY) * 100));
   return {
     backgroundImage: `url(${photo})`,
     backgroundRepeat: "no-repeat",

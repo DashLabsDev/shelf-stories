@@ -66,6 +66,12 @@ export default function BookModal({
     ? spineCropBackground(book.photo!, book.spineCrop!)
     : { backgroundColor: book.color };
 
+  const about =
+    book.notes?.trim() ||
+    (book.identified
+      ? "No synopsis recorded yet — open Goodreads for reader notes."
+      : "Photographed on the shelf; identification still pending.");
+
   return (
     <div
       className="detail-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-[1px] sm:p-8"
@@ -78,56 +84,53 @@ export default function BookModal({
         className="detail-dialog relative"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Left: 3D stage */}
+        {/* Left: 3D stage (~43%) */}
         <div className="detail-stage flex flex-col">
-          <p className="absolute left-[29px] top-[29px] text-[11px] font-medium uppercase tracking-[0.22em] text-ink/40">
+          <p className="absolute left-[29px] top-[29px] z-[1] text-[11px] font-medium uppercase tracking-[0.22em] text-ink/40">
             From {book.shelfLabel}
           </p>
 
-          <div className="flex flex-1 flex-col items-center justify-center pt-6">
+          <div className="relative z-[1] flex flex-1 flex-col items-center justify-center pt-6">
             <div
               className={`detail-book${showSpine ? " is-spine" : ""}`}
               style={{ ["--book-color" as string]: book.color }}
             >
-              <div
-                className="absolute inset-0 overflow-hidden rounded-sm shadow-lg"
-                style={{
-                  transform: "translateZ(14px)",
-                  backgroundColor: book.color,
-                }}
-              >
+              {/* Cover face */}
+              <div className="detail-face detail-face--cover">
                 {!showSpine ? (
                   <BookCover book={book} />
                 ) : (
-                  <div className="flex h-full w-full items-center justify-center" style={spineFace}>
-                    {!hasCrop && (
-                      <span
-                        className="spine-text px-1 font-display text-sm"
-                        style={{ color: textColorFor(book.color) }}
-                      >
-                        {book.spineLabel}
-                      </span>
-                    )}
-                  </div>
+                  <div className="h-full w-full" style={{ backgroundColor: book.color, filter: "brightness(0.85)" }} />
                 )}
               </div>
+
+              {/* Spine face — primary when Show spine */}
               <div
-                aria-hidden
-                className="absolute inset-y-0 left-0 w-5"
-                style={{
-                  background: book.color,
-                  filter: "brightness(0.75)",
-                  transform: "rotateY(-90deg) translateZ(0px)",
-                  transformOrigin: "left center",
-                }}
-              />
+                className="detail-face detail-face--spine"
+                style={showSpine ? spineFace : { backgroundColor: book.color, filter: "brightness(0.78)" }}
+              >
+                {showSpine && !hasCrop && (
+                  <span
+                    className="spine-text absolute inset-0 z-[1] flex items-center justify-center overflow-hidden px-0.5 py-4 font-display text-[13px] font-medium"
+                    style={{ color: textColorFor(book.color) }}
+                  >
+                    <span className="max-h-full overflow-hidden text-ellipsis whitespace-nowrap">
+                      {book.spineLabel}
+                    </span>
+                  </span>
+                )}
+              </div>
+
+              {/* Pages edge */}
+              <div className="detail-face detail-face--pages" aria-hidden />
             </div>
+
             <div className="detail-shadow" aria-hidden />
 
             <button
               type="button"
               onClick={() => setShowSpine((v) => !v)}
-              className="mt-5 inline-flex items-center gap-2 text-sm text-ink/55 transition hover:text-ink"
+              className="mt-5 inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white/50 px-3.5 py-1.5 text-sm text-ink/60 shadow-sm transition hover:border-ink/20 hover:bg-white/80 hover:text-ink"
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
                 <path
@@ -144,8 +147,8 @@ export default function BookModal({
           </div>
         </div>
 
-        {/* Right: content */}
-        <div className="relative flex max-h-[calc(100dvh-64px)] flex-col overflow-y-auto p-[57px_43px_22px]">
+        {/* Right: content (~57%) */}
+        <div className="detail-content relative">
           <button
             ref={closeRef}
             type="button"
@@ -186,13 +189,7 @@ export default function BookModal({
 
           <div>
             <h4 className="text-sm font-semibold text-ink">About the book</h4>
-            <p className="mt-2 text-base leading-[1.7] text-ink/70">
-              {book.notes?.trim()
-                ? book.notes
-                : book.identified
-                  ? "No synopsis recorded yet — open Goodreads for reader notes."
-                  : "Photographed on the shelf; identification still pending."}
-            </p>
+            <p className="mt-2 text-base leading-[1.7] text-ink/70">{about}</p>
             {!book.identified && (
               <p className="mt-3 rounded-lg border border-brass/30 bg-brass/10 px-3 py-2 text-sm text-walnut-dark">
                 Uncertain identification — spine reads “{book.spineLabel}”.
@@ -200,7 +197,7 @@ export default function BookModal({
             )}
           </div>
 
-          <div className="mt-6 flex flex-wrap gap-x-8 gap-y-4">
+          <div className="detail-meta">
             <div>
               <p className="text-[11px] uppercase tracking-[0.16em] text-ink/40">Published</p>
               <p className="mt-1 text-sm text-ink/80">

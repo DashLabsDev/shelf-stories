@@ -15,9 +15,9 @@
           "spineLabel": "LAKEWOOD HIGH SCHOOL 1996 · VOLUME 24",
           "identified": true,
           "color": "#1a1a1a",
-          "notes": "Yearbook; gold lettering on black spine.",
+          "notes": "Lakewood High School's 1996 yearbook (Volume 24) — a hardcover keepsake of one school year, with gold lettering on a black spine.",
           "spineCrop": {
-            "x": 5.0,
+            "x": 5,
             "y": 9.8,
             "w": 9.39,
             "h": 15.4
@@ -177,7 +177,7 @@
           "color": "#b8a0c8",
           "notes": "Light purple/lavender binder.",
           "spineCrop": {
-            "x": 56.0,
+            "x": 56,
             "y": 9.8,
             "w": 7.87,
             "h": 15.4
@@ -247,14 +247,15 @@
           "identified": true,
           "color": "#2a4a6a",
           "spineCrop": {
-            "x": 5.0,
+            "x": 5,
             "y": 29.8,
             "w": 4.32,
             "h": 16.4
           },
           "year": 1960,
           "publisher": "Houghton Mifflin",
-          "faceOut": true
+          "faceOut": true,
+          "notes": "Newbery Medal winner about a young girl left alone on an island off the California coast, surviving by wit and courage."
         },
         {
           "id": "bk-016",
@@ -271,7 +272,8 @@
             "h": 16.4
           },
           "year": 1949,
-          "publisher": "Doubleday"
+          "publisher": "Doubleday",
+          "notes": "A hermit and two orphaned children build an unlikely family in a mountain house surrounded by animals."
         },
         {
           "id": "bk-017",
@@ -288,7 +290,8 @@
             "h": 16.4
           },
           "year": 1940,
-          "publisher": "Macmillan"
+          "publisher": "Macmillan",
+          "notes": "Newbery Medal story of Mafatu, a Polynesian boy who faces the sea — and his fear — to prove his courage."
         },
         {
           "id": "bk-018",
@@ -305,7 +308,9 @@
             "h": 16.4
           },
           "year": 1956,
-          "publisher": "Harcourt"
+          "publisher": "Harcourt",
+          "notes": "A family moves to a Pennsylvania maple farm; Marly discovers that miracles can be quiet, seasonal, and close to home.",
+          "faceOut": true
         },
         {
           "id": "bk-019",
@@ -322,7 +327,9 @@
             "h": 16.4
           },
           "year": 1943,
-          "publisher": "Viking Press"
+          "publisher": "Viking Press",
+          "notes": "Robert McCloskey's classic Midwestern tall tales of Homer Price, doughnuts, and small-town invention.",
+          "faceOut": true
         },
         {
           "id": "bk-020",
@@ -339,7 +346,8 @@
             "h": 16.4
           },
           "year": 1955,
-          "publisher": "Houghton Mifflin"
+          "publisher": "Houghton Mifflin",
+          "notes": "Newbery Medal biography of Nathaniel Bowditch, the sailor-mathematician who rewrote navigation for generations."
         },
         {
           "id": "bk-021",
@@ -398,13 +406,14 @@
           "identified": true,
           "color": "#e8a0b0",
           "spineCrop": {
-            "x": 48.0,
+            "x": 48,
             "y": 29.8,
             "w": 2.5,
             "h": 16.4
           },
           "year": 1932,
-          "publisher": "Harper & Brothers"
+          "publisher": "Harper & Brothers",
+          "notes": "First book of the Little House series: Laura Ingalls grows up in the Wisconsin woods with Pa, Ma, Mary, and Baby Carrie."
         },
         {
           "id": "bk-025",
@@ -422,7 +431,8 @@
           },
           "year": 1935,
           "publisher": "Harper & Brothers",
-          "faceOut": true
+          "faceOut": true,
+          "notes": "The Ingalls family leaves the Big Woods for Indian Territory — a prairie claim, a log house, and an uncertain frontier."
         },
         {
           "id": "bk-026",
@@ -439,7 +449,8 @@
             "h": 16.4
           },
           "year": 1933,
-          "publisher": "Harper & Brothers"
+          "publisher": "Harper & Brothers",
+          "notes": "Almanzo Wilder's boyhood on a New York farm — chores, horses, and the making of a farmer."
         },
         {
           "id": "bk-027",
@@ -456,7 +467,8 @@
             "h": 16.4
           },
           "year": 1937,
-          "publisher": "Harper & Brothers"
+          "publisher": "Harper & Brothers",
+          "notes": "The Ingalls settle beside Plum Creek in Minnesota: a dugout home, school, and hard years of hope."
         },
         {
           "id": "bk-028",
@@ -473,7 +485,8 @@
             "h": 16.4
           },
           "year": 1939,
-          "publisher": "Harper & Brothers"
+          "publisher": "Harper & Brothers",
+          "notes": "West again to Dakota Territory; Laura watches the railroad arrive and a town rise from the prairie."
         },
         {
           "id": "bk-029",
@@ -490,7 +503,8 @@
             "h": 16.4
           },
           "year": 1940,
-          "publisher": "Harper & Brothers"
+          "publisher": "Harper & Brothers",
+          "notes": "A Dakota winter seals the town in blizzards; the Ingalls endure on grit, music, and dwindling stores."
         },
         {
           "id": "bk-030",
@@ -507,7 +521,8 @@
             "h": 16.4
           },
           "year": 1941,
-          "publisher": "Harper & Brothers"
+          "publisher": "Harper & Brothers",
+          "notes": "Laura comes of age in De Smet — school, town life, and the first turns toward independence."
         },
         {
           "id": "bk-031",
@@ -524,7 +539,8 @@
             "h": 16.4
           },
           "year": 1943,
-          "publisher": "Harper & Brothers"
+          "publisher": "Harper & Brothers",
+          "notes": "Courtship years: teaching, Almanzo, and the road toward a home of Laura's own."
         },
         {
           "id": "bk-032",
@@ -541,7 +557,8 @@
             "h": 16.4
           },
           "year": 1971,
-          "publisher": "Harper & Row"
+          "publisher": "Harper & Row",
+          "notes": "The early married years of Laura and Almanzo — drought, illness, and the birth of Rose."
         },
         {
           "id": "bk-033",
@@ -558,7 +575,8 @@
             "h": 16.4
           },
           "year": 1951,
-          "publisher": "W. W. Norton"
+          "publisher": "W. W. Norton",
+          "notes": "Ralph Moody's Colorado childhood continues: after his father's death, young Ralph helps hold the family together."
         },
         {
           "id": "bk-034",
@@ -575,7 +593,8 @@
             "h": 16.4
           },
           "year": 1961,
-          "publisher": "W. W. Norton"
+          "publisher": "W. W. Norton",
+          "notes": "The Moodys move east; Mary Emma starts a business while Ralph learns city work and responsibility."
         },
         {
           "id": "bk-035",
@@ -592,7 +611,8 @@
             "h": 16.4
           },
           "year": 1953,
-          "publisher": "W. W. Norton"
+          "publisher": "W. W. Norton",
+          "notes": "Ralph spends a year on his grandfather's Maine farm, bridging western grit and New England ways."
         },
         {
           "id": "bk-036",
@@ -609,7 +629,9 @@
             "h": 16.4
           },
           "year": 1956,
-          "publisher": "W. W. Norton"
+          "publisher": "W. W. Norton",
+          "notes": "Back west on a Colorado ranch, Ralph learns cattle work and the craft of horsemanship.",
+          "faceOut": true
         },
         {
           "id": "bk-037",
@@ -626,7 +648,8 @@
             "h": 16.4
           },
           "year": 1963,
-          "publisher": "W. W. Norton"
+          "publisher": "W. W. Norton",
+          "notes": "Ralph strikes out on his own across the dry plains — risk, labor, and hard-won independence."
         },
         {
           "id": "bk-038",
@@ -643,7 +666,8 @@
             "h": 16.4
           },
           "year": 1962,
-          "publisher": "W. W. Norton"
+          "publisher": "W. W. Norton",
+          "notes": "Lean Depression years: Ralph and a friend scrape by as artists and laborers, shaking the nickel bush for work."
         }
       ]
     },
@@ -662,7 +686,7 @@
           "color": "#4a7ab8",
           "notes": "Numbered reading series, vol. 1.",
           "spineCrop": {
-            "x": 5.0,
+            "x": 5,
             "y": 51.8,
             "w": 2.73,
             "h": 16.4
@@ -794,7 +818,8 @@
             "y": 51.8,
             "w": 5.18,
             "h": 16.4
-          }
+          },
+          "notes": "Seasonal reader following the Moody children through summer days of play, chores, and family life."
         },
         {
           "id": "bk-048",
@@ -809,7 +834,8 @@
             "y": 51.8,
             "w": 5.18,
             "h": 16.4
-          }
+          },
+          "notes": "Autumn with the Moodys — harvest rhythms, cooler days, and household stories for young readers."
         },
         {
           "id": "bk-049",
@@ -824,7 +850,8 @@
             "y": 51.8,
             "w": 2.73,
             "h": 16.4
-          }
+          },
+          "notes": "Winter days of indoor work, weather, and quiet adventures in the Moody household."
         },
         {
           "id": "bk-050",
@@ -839,7 +866,8 @@
             "y": 51.8,
             "w": 2.73,
             "h": 16.4
-          }
+          },
+          "notes": "Spring returns: planting, thaw, and fresh starts in the Moody family readers."
         },
         {
           "id": "bk-051",
@@ -851,7 +879,7 @@
           "color": "#2a2a2e",
           "notes": "Thin dark spine; title unclear.",
           "spineCrop": {
-            "x": 54.0,
+            "x": 54,
             "y": 51.8,
             "w": 4.47,
             "h": 16.4
@@ -913,7 +941,7 @@
           "spineLabel": "GOD'S BIG STORY · LEVEL 1",
           "identified": true,
           "color": "#7ab0d0",
-          "notes": "Thick light-blue volume.",
+          "notes": "Level 1 of a graded Bible-story curriculum — thick light-blue volume retelling scripture narratives for early readers.",
           "spineCrop": {
             "x": 73.73,
             "y": 51.8,
@@ -930,7 +958,7 @@
           "spineLabel": "GOD'S BIG STORY · LEVEL 2",
           "identified": true,
           "color": "#4a8a5a",
-          "notes": "Thick green volume.",
+          "notes": "Level 2 continues God's Big Story with longer passages and a green spine for the next reading stage.",
           "spineCrop": {
             "x": 78.67,
             "y": 51.8,
@@ -946,13 +974,14 @@
           "spineLabel": "GOD'S BIG STORY · LEVEL 3",
           "identified": true,
           "color": "#2a4a7a",
-          "notes": "Thick dark-blue volume.",
+          "notes": "Level 3 deepens the Bible narrative sequence for growing readers; thick dark-blue binding.",
           "spineCrop": {
             "x": 83.6,
             "y": 51.8,
             "w": 4.47,
             "h": 16.4
-          }
+          },
+          "faceOut": true
         },
         {
           "id": "bk-058",
@@ -962,7 +991,7 @@
           "spineLabel": "GOD'S BIG STORY · LEVEL 4",
           "identified": true,
           "color": "#a83a3a",
-          "notes": "Thick red volume.",
+          "notes": "Level 4 completes the graded set with fuller stories and a thick red volume.",
           "spineCrop": {
             "x": 88.53,
             "y": 51.8,
@@ -987,7 +1016,7 @@
           "color": "#5a5048",
           "notes": "Partially visible bottom shelf spine.",
           "spineCrop": {
-            "x": 10.0,
+            "x": 10,
             "y": 74.8,
             "w": 15.19,
             "h": 15.4

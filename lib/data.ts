@@ -1,4 +1,5 @@
-import type { Book, Category, Shelf, ShelfData } from "./types";
+import type { CSSProperties } from "react";
+import type { Book, Category, Shelf, ShelfData, SpineCrop } from "./types";
 import { CATEGORIES } from "./types";
 import raw from "@/data/shelves.json";
 
@@ -53,27 +54,94 @@ export function getStats(data: ShelfData): LibraryStats {
   };
 }
 
+/**
+ * Filter books by category + search query.
+ * Empty shelves are dropped so filters never show “Nothing on this shelf…”.
+ */
 export function filterShelves(
   shelves: Shelf[],
-  category: Category | "all"
+  category: Category | "all",
+  query = ""
 ): Shelf[] {
-  if (category === "all") return shelves;
-  return shelves.map((shelf) => ({
-    ...shelf,
-    books: shelf.books.filter((b) => b.category === category),
-  }));
+  const q = query.trim().toLowerCase();
+  return shelves
+    .map((shelf) => ({
+      ...shelf,
+      books: shelf.books.filter((b) => {
+        if (category !== "all" && b.category !== category) return false;
+        if (!q) return true;
+        const hay = [b.title, b.author, b.spineLabel, b.notes]
+          .filter(Boolean)
+          .join(" ")
+          .toLowerCase();
+        return hay.includes(q);
+      }),
+    }))
+    .filter((shelf) => shelf.books.length > 0);
+}
+
+export function bookMatchesQuery(book: Book, query: string): boolean {
+  const q = query.trim().toLowerCase();
+  if (!q) return true;
+  const hay = [book.title, book.author, book.spineLabel, book.notes]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+  return hay.includes(q);
 }
 
 /**
- * Deterministic pseudo-random helpers so spine heights/widths vary
- * naturally but render identically on server and client.
+ * Dense, varied spine metrics — thinner packs for ~continuous shelf feel.
  */
 export function spineMetrics(book: Book): { height: number; width: number } {
   let hash = 0;
   for (let i = 0; i < book.id.length; i++) {
     hash = (hash * 31 + book.id.charCodeAt(i)) & 0xffff;
   }
-  const height = 168 + (hash % 56); // 168–223 px
-  const width = 34 + ((hash >> 4) % 22); // 34–55 px
+  const height = 168 + (hash % 58); // 168–225 px
+  if (book.spineCrop) {
+    // Map crop width % → px with denser packing
+    const width = Math.max(16, Math.min(52, Math.round(book.spineCrop.w * 8.5)));
+    return { height, width };
+  }
+  const width = 22 + ((hash >> 4) % 26); // 22–47 px
   return { height, width };
+}
+
+/** CSS background props to show a % crop of a photo as the element face. */
+export function spineCropBackground(
+  photo: string,
+  crop: SpineCrop
+): CSSProperties {
+  const sizeX = 100 / (crop.w / 100);
+  const sizeY = 100 / (crop.h / 100);
+  const posX = crop.w >= 99.9 ? 0 : (crop.x / (100 - crop.w)) * 100;
+  const posY = crop.h >= 99.9 ? 0 : (crop.y / (100 - crop.h)) * 100;
+  return {
+    backgroundImage: `url(${photo})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: `${sizeX}% ${sizeY}%`,
+    backgroundPosition: `${posX}% ${posY}%`,
+  };
+}
+
+export type FlatBook = Book & {
+  shelfId: string;
+  shelfLabel: string;
+  photo: string | null;
+};
+
+export function flattenBooks(shelves: Shelf[]): FlatBook[] {
+  const out: FlatBook[] = [];
+  for (const shelf of shelves) {
+    for (const book of shelf.books) {
+      out.push({
+        ...book,
+        shelfId: shelf.id,
+        shelfLabel: shelf.label,
+        photo: shelf.photo,
+      });
+    }
+  }
+  return out;
 }

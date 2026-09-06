@@ -61,8 +61,7 @@ export default function BookModal({
                 Unidentified spine
               </h3>
               <p className="mt-2 text-base text-ink/55">
-                Not matched to a book yet. Know it? It can be identified from
-                the shelf photo.
+                Needs a closer look — not matched to a book yet.
               </p>
             </>
           )}
@@ -70,7 +69,9 @@ export default function BookModal({
           <dl className="mt-8 space-y-4 border-t border-ink/10 pt-6 text-base">
             <div>
               <dt className="text-sm text-ink/40">Spine reads</dt>
-              <dd className="mt-1 font-mono text-sm text-ink/80">{book.spineLabel}</dd>
+              <dd className="mt-1 font-mono text-sm text-ink/80">
+                {book.spineLabel}
+              </dd>
             </div>
             <div>
               <dt className="text-sm text-ink/40">Shelf</dt>

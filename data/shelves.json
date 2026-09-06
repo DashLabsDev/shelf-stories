@@ -3,8 +3,8 @@
   "demo": false,
   "shelves": [
     {
-      "id": "shelf-1-left",
-      "label": "Top shelf — left",
+      "id": "shelf-01",
+      "label": "Shelf 01",
       "photo": "/shelves/shelf-thomas-1.jpg",
       "books": [
         {
@@ -12,10 +12,16 @@
           "title": "Lakewood High School 1996 Volume 24",
           "author": "Lakewood High School",
           "category": "nonfiction",
-          "spineLabel": "LAKEWOOD HIGH SCHOOL 1996 · VOLUME 24",
+          "spineLabel": "LAKEWOOD HIGH SCHOOL 1996 \u00b7 VOLUME 24",
           "identified": true,
           "color": "#1a1a1a",
-          "notes": "Yearbook; gold lettering on black spine."
+          "notes": "Yearbook; gold lettering on black spine.",
+          "spineCrop": {
+            "x": 5.0,
+            "y": 9.8,
+            "w": 9.39,
+            "h": 15.4
+          }
         },
         {
           "id": "bk-002",
@@ -25,7 +31,13 @@
           "spineLabel": "Curriculum reader",
           "identified": false,
           "color": "#f5f0e6",
-          "notes": "Thin cream Abeka-style reader."
+          "notes": "Thin cream Abeka-style reader.",
+          "spineCrop": {
+            "x": 14.99,
+            "y": 9.8,
+            "w": 3.91,
+            "h": 15.4
+          }
         },
         {
           "id": "bk-003",
@@ -35,7 +47,13 @@
           "spineLabel": "Curriculum reader",
           "identified": false,
           "color": "#e8e0d0",
-          "notes": "Thin cream/white curriculum spine."
+          "notes": "Thin cream/white curriculum spine.",
+          "spineCrop": {
+            "x": 19.5,
+            "y": 9.8,
+            "w": 3.91,
+            "h": 15.4
+          }
         },
         {
           "id": "bk-004",
@@ -45,7 +63,13 @@
           "spineLabel": "Curriculum reader",
           "identified": false,
           "color": "#c5d5e0",
-          "notes": "Thin blue curriculum spine."
+          "notes": "Thin blue curriculum spine.",
+          "spineCrop": {
+            "x": 24.01,
+            "y": 9.8,
+            "w": 3.91,
+            "h": 15.4
+          }
         },
         {
           "id": "bk-005",
@@ -55,7 +79,13 @@
           "spineLabel": "Curriculum reader",
           "identified": false,
           "color": "#7a9ab0",
-          "notes": "Thin blue curriculum spine."
+          "notes": "Thin blue curriculum spine.",
+          "spineCrop": {
+            "x": 28.53,
+            "y": 9.8,
+            "w": 3.91,
+            "h": 15.4
+          }
         },
         {
           "id": "bk-006",
@@ -65,7 +95,13 @@
           "spineLabel": "Curriculum reader",
           "identified": false,
           "color": "#5a8a6a",
-          "notes": "Thin green curriculum spine."
+          "notes": "Thin green curriculum spine.",
+          "spineCrop": {
+            "x": 33.04,
+            "y": 9.8,
+            "w": 3.91,
+            "h": 15.4
+          }
         },
         {
           "id": "bk-007",
@@ -75,7 +111,13 @@
           "spineLabel": "Curriculum reader",
           "identified": false,
           "color": "#6b9b5e",
-          "notes": "Thin green curriculum spine."
+          "notes": "Thin green curriculum spine.",
+          "spineCrop": {
+            "x": 37.55,
+            "y": 9.8,
+            "w": 3.91,
+            "h": 15.4
+          }
         },
         {
           "id": "bk-008",
@@ -85,7 +127,13 @@
           "spineLabel": "Curriculum reader",
           "identified": false,
           "color": "#c45c4a",
-          "notes": "Thin red curriculum spine."
+          "notes": "Thin red curriculum spine.",
+          "spineCrop": {
+            "x": 42.06,
+            "y": 9.8,
+            "w": 3.91,
+            "h": 15.4
+          }
         },
         {
           "id": "bk-009",
@@ -95,7 +143,13 @@
           "spineLabel": "Curriculum reader",
           "identified": false,
           "color": "#b33a2e",
-          "notes": "Thin red curriculum spine."
+          "notes": "Thin red curriculum spine.",
+          "spineCrop": {
+            "x": 46.58,
+            "y": 9.8,
+            "w": 3.91,
+            "h": 15.4
+          }
         },
         {
           "id": "bk-010",
@@ -105,15 +159,14 @@
           "spineLabel": "Curriculum reader",
           "identified": false,
           "color": "#d4a574",
-          "notes": "Thin tan curriculum spine."
-        }
-      ]
-    },
-    {
-      "id": "shelf-1-right",
-      "label": "Top shelf — right",
-      "photo": "/shelves/shelf-thomas-1.jpg",
-      "books": [
+          "notes": "Thin tan curriculum spine.",
+          "spineCrop": {
+            "x": 51.09,
+            "y": 9.8,
+            "w": 3.91,
+            "h": 15.4
+          }
+        },
         {
           "id": "bk-011",
           "title": null,
@@ -122,7 +175,13 @@
           "spineLabel": "Binder",
           "identified": false,
           "color": "#b8a0c8",
-          "notes": "Light purple/lavender binder."
+          "notes": "Light purple/lavender binder.",
+          "spineCrop": {
+            "x": 56.0,
+            "y": 9.8,
+            "w": 7.87,
+            "h": 15.4
+          }
         },
         {
           "id": "bk-012",
@@ -132,7 +191,13 @@
           "spineLabel": "Binder",
           "identified": false,
           "color": "#f0eeea",
-          "notes": "White binder."
+          "notes": "White binder.",
+          "spineCrop": {
+            "x": 64.32,
+            "y": 9.8,
+            "w": 7.41,
+            "h": 15.4
+          }
         },
         {
           "id": "bk-013",
@@ -142,7 +207,13 @@
           "spineLabel": "WISDOM & KNOW HOW",
           "identified": true,
           "color": "#d4b84a",
-          "notes": "Thick cream/yellow reference volume."
+          "notes": "Thick cream/yellow reference volume.",
+          "spineCrop": {
+            "x": 72.17,
+            "y": 9.8,
+            "w": 10.19,
+            "h": 15.4
+          }
         },
         {
           "id": "bk-014",
@@ -152,13 +223,19 @@
           "spineLabel": "Papers / envelopes",
           "identified": false,
           "color": "#f7f5f0",
-          "notes": "Stack of flat white envelopes or documents."
+          "notes": "Stack of flat white envelopes or documents.",
+          "spineCrop": {
+            "x": 82.81,
+            "y": 9.8,
+            "w": 10.19,
+            "h": 15.4
+          }
         }
       ]
     },
     {
-      "id": "shelf-2-left",
-      "label": "Middle shelf — left",
+      "id": "shelf-02",
+      "label": "Shelf 02",
       "photo": "/shelves/shelf-thomas-1.jpg",
       "books": [
         {
@@ -168,7 +245,13 @@
           "category": "fiction",
           "spineLabel": "ISLAND OF THE BLUE DOLPHINS",
           "identified": true,
-          "color": "#2a4a6a"
+          "color": "#2a4a6a",
+          "spineCrop": {
+            "x": 5.0,
+            "y": 29.8,
+            "w": 4.32,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-016",
@@ -177,7 +260,13 @@
           "category": "fiction",
           "spineLabel": "KILDEE HOUSE",
           "identified": true,
-          "color": "#3d5c45"
+          "color": "#3d5c45",
+          "spineCrop": {
+            "x": 9.84,
+            "y": 29.8,
+            "w": 4.32,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-017",
@@ -186,7 +275,13 @@
           "category": "fiction",
           "spineLabel": "CALL IT COURAGE",
           "identified": true,
-          "color": "#1e3a4c"
+          "color": "#1e3a4c",
+          "spineCrop": {
+            "x": 14.67,
+            "y": 29.8,
+            "w": 4.32,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-018",
@@ -195,7 +290,13 @@
           "category": "fiction",
           "spineLabel": "MIRACLES ON MAPLE HILL",
           "identified": true,
-          "color": "#c45a2a"
+          "color": "#c45a2a",
+          "spineCrop": {
+            "x": 19.51,
+            "y": 29.8,
+            "w": 4.32,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-019",
@@ -204,7 +305,13 @@
           "category": "fiction",
           "spineLabel": "HOMER PRICE",
           "identified": true,
-          "color": "#4a6741"
+          "color": "#4a6741",
+          "spineCrop": {
+            "x": 24.34,
+            "y": 29.8,
+            "w": 4.32,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-020",
@@ -213,7 +320,13 @@
           "category": "fiction",
           "spineLabel": "CARRY ON, MR. BOWDITCH",
           "identified": true,
-          "color": "#2c4560"
+          "color": "#2c4560",
+          "spineCrop": {
+            "x": 29.18,
+            "y": 29.8,
+            "w": 4.32,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-021",
@@ -223,7 +336,13 @@
           "spineLabel": "Dark grey set",
           "identified": false,
           "color": "#3a3a3e",
-          "notes": "Uniform dark grey/black spine, white lettering."
+          "notes": "Uniform dark grey/black spine, white lettering.",
+          "spineCrop": {
+            "x": 34.01,
+            "y": 29.8,
+            "w": 4.32,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-022",
@@ -233,7 +352,13 @@
           "spineLabel": "Dark grey set",
           "identified": false,
           "color": "#2e2e32",
-          "notes": "Uniform dark grey/black spine."
+          "notes": "Uniform dark grey/black spine.",
+          "spineCrop": {
+            "x": 38.85,
+            "y": 29.8,
+            "w": 4.32,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-023",
@@ -243,15 +368,14 @@
           "spineLabel": "Dark grey set",
           "identified": false,
           "color": "#35353a",
-          "notes": "Uniform dark grey/black spine."
-        }
-      ]
-    },
-    {
-      "id": "shelf-2-right",
-      "label": "Middle shelf — right",
-      "photo": "/shelves/shelf-thomas-1.jpg",
-      "books": [
+          "notes": "Uniform dark grey/black spine.",
+          "spineCrop": {
+            "x": 43.68,
+            "y": 29.8,
+            "w": 4.32,
+            "h": 16.4
+          }
+        },
         {
           "id": "bk-024",
           "title": "Little House in the Big Woods",
@@ -259,7 +383,13 @@
           "category": "fiction",
           "spineLabel": "LITTLE HOUSE IN THE BIG WOODS",
           "identified": true,
-          "color": "#e8a0b0"
+          "color": "#e8a0b0",
+          "spineCrop": {
+            "x": 48.0,
+            "y": 29.8,
+            "w": 2.5,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-025",
@@ -268,7 +398,13 @@
           "category": "fiction",
           "spineLabel": "LITTLE HOUSE ON THE PRAIRIE",
           "identified": true,
-          "color": "#e8c84a"
+          "color": "#e8c84a",
+          "spineCrop": {
+            "x": 51.04,
+            "y": 29.8,
+            "w": 2.5,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-026",
@@ -277,7 +413,13 @@
           "category": "fiction",
           "spineLabel": "FARMER BOY",
           "identified": true,
-          "color": "#6a9a5a"
+          "color": "#6a9a5a",
+          "spineCrop": {
+            "x": 54.07,
+            "y": 29.8,
+            "w": 2.5,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-027",
@@ -286,7 +428,13 @@
           "category": "fiction",
           "spineLabel": "ON THE BANKS OF PLUM CREEK",
           "identified": true,
-          "color": "#5a8ab8"
+          "color": "#5a8ab8",
+          "spineCrop": {
+            "x": 57.11,
+            "y": 29.8,
+            "w": 2.5,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-028",
@@ -295,7 +443,13 @@
           "category": "fiction",
           "spineLabel": "BY THE SHORES OF SILVER LAKE",
           "identified": true,
-          "color": "#7a6a9a"
+          "color": "#7a6a9a",
+          "spineCrop": {
+            "x": 60.14,
+            "y": 29.8,
+            "w": 2.5,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-029",
@@ -304,7 +458,13 @@
           "category": "fiction",
           "spineLabel": "THE LONG WINTER",
           "identified": true,
-          "color": "#c8d0d8"
+          "color": "#c8d0d8",
+          "spineCrop": {
+            "x": 63.18,
+            "y": 29.8,
+            "w": 2.5,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-030",
@@ -313,7 +473,13 @@
           "category": "fiction",
           "spineLabel": "LITTLE TOWN ON THE PRAIRIE",
           "identified": true,
-          "color": "#d48a5a"
+          "color": "#d48a5a",
+          "spineCrop": {
+            "x": 66.22,
+            "y": 29.8,
+            "w": 2.5,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-031",
@@ -322,7 +488,13 @@
           "category": "fiction",
           "spineLabel": "THESE HAPPY GOLDEN YEARS",
           "identified": true,
-          "color": "#c45a6a"
+          "color": "#c45a6a",
+          "spineCrop": {
+            "x": 69.25,
+            "y": 29.8,
+            "w": 2.5,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-032",
@@ -331,7 +503,13 @@
           "category": "fiction",
           "spineLabel": "THE FIRST FOUR YEARS",
           "identified": true,
-          "color": "#8a6a4a"
+          "color": "#8a6a4a",
+          "spineCrop": {
+            "x": 72.29,
+            "y": 29.8,
+            "w": 2.5,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-033",
@@ -340,7 +518,13 @@
           "category": "fiction",
           "spineLabel": "MAN OF THE FAMILY",
           "identified": true,
-          "color": "#1c1c1c"
+          "color": "#1c1c1c",
+          "spineCrop": {
+            "x": 75.32,
+            "y": 29.8,
+            "w": 2.5,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-034",
@@ -349,7 +533,13 @@
           "category": "fiction",
           "spineLabel": "MARY EMMA & COMPANY",
           "identified": true,
-          "color": "#222222"
+          "color": "#222222",
+          "spineCrop": {
+            "x": 78.36,
+            "y": 29.8,
+            "w": 2.5,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-035",
@@ -358,7 +548,13 @@
           "category": "fiction",
           "spineLabel": "THE FIELDS OF HOME",
           "identified": true,
-          "color": "#1a1a1a"
+          "color": "#1a1a1a",
+          "spineCrop": {
+            "x": 81.4,
+            "y": 29.8,
+            "w": 2.5,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-036",
@@ -367,7 +563,13 @@
           "category": "fiction",
           "spineLabel": "THE HOME RANCH",
           "identified": true,
-          "color": "#202020"
+          "color": "#202020",
+          "spineCrop": {
+            "x": 84.43,
+            "y": 29.8,
+            "w": 2.5,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-037",
@@ -376,7 +578,13 @@
           "category": "fiction",
           "spineLabel": "THE DRY DIVIDE",
           "identified": true,
-          "color": "#181818"
+          "color": "#181818",
+          "spineCrop": {
+            "x": 87.47,
+            "y": 29.8,
+            "w": 2.5,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-038",
@@ -385,13 +593,19 @@
           "category": "fiction",
           "spineLabel": "SHAKING THE NICKEL BUSH",
           "identified": true,
-          "color": "#242424"
+          "color": "#242424",
+          "spineCrop": {
+            "x": 90.5,
+            "y": 29.8,
+            "w": 2.5,
+            "h": 16.4
+          }
         }
       ]
     },
     {
-      "id": "shelf-3-left",
-      "label": "Lower shelf — left",
+      "id": "shelf-03",
+      "label": "Shelf 03",
       "photo": "/shelves/shelf-thomas-1.jpg",
       "books": [
         {
@@ -399,80 +613,128 @@
           "title": "I Wonder",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "1 · I WONDER",
+          "spineLabel": "1 \u00b7 I WONDER",
           "identified": true,
           "color": "#4a7ab8",
-          "notes": "Numbered reading series, vol. 1."
+          "notes": "Numbered reading series, vol. 1.",
+          "spineCrop": {
+            "x": 5.0,
+            "y": 51.8,
+            "w": 2.73,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-040",
           "title": "Happy Hearts",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "2 · HAPPY HEARTS",
+          "spineLabel": "2 \u00b7 HAPPY HEARTS",
           "identified": true,
           "color": "#6a5a9a",
-          "notes": "Numbered reading series, vol. 2."
+          "notes": "Numbered reading series, vol. 2.",
+          "spineCrop": {
+            "x": 8.31,
+            "y": 51.8,
+            "w": 2.73,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-041",
           "title": "Doors to Discovery",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "3 · DOORS TO DISCOVERY",
+          "spineLabel": "3 \u00b7 DOORS TO DISCOVERY",
           "identified": true,
           "color": "#8a4a8a",
-          "notes": "Numbered reading series, vol. 3."
+          "notes": "Numbered reading series, vol. 3.",
+          "spineCrop": {
+            "x": 11.63,
+            "y": 51.8,
+            "w": 2.73,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-042",
           "title": "Bridges",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "4 · BRIDGES",
+          "spineLabel": "4 \u00b7 BRIDGES",
           "identified": true,
           "color": "#c45a5a",
-          "notes": "Numbered reading series, vol. 4."
+          "notes": "Numbered reading series, vol. 4.",
+          "spineCrop": {
+            "x": 14.94,
+            "y": 51.8,
+            "w": 2.73,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-043",
           "title": "Open Windows",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "5 · OPEN WINDOWS",
+          "spineLabel": "5 \u00b7 OPEN WINDOWS",
           "identified": true,
           "color": "#5a9a6a",
-          "notes": "Numbered reading series, vol. 5."
+          "notes": "Numbered reading series, vol. 5.",
+          "spineCrop": {
+            "x": 18.26,
+            "y": 51.8,
+            "w": 2.73,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-044",
           "title": "Calls to Success",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "6 · CALLS TO SUCCESS",
+          "spineLabel": "6 \u00b7 CALLS TO SUCCESS",
           "identified": true,
           "color": "#c8a84a",
-          "notes": "Numbered reading series, vol. 6."
+          "notes": "Numbered reading series, vol. 6.",
+          "spineCrop": {
+            "x": 21.57,
+            "y": 51.8,
+            "w": 2.73,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-045",
           "title": "The Road Less Traveled",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "7 · THE ROAD LESS TRAVELED",
+          "spineLabel": "7 \u00b7 THE ROAD LESS TRAVELED",
           "identified": true,
           "color": "#3a6a8a",
-          "notes": "Numbered reading series, vol. 7 (from spine numbering)."
+          "notes": "Numbered reading series, vol. 7 (from spine numbering).",
+          "spineCrop": {
+            "x": 24.89,
+            "y": 51.8,
+            "w": 5.18,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-046",
           "title": "Where Roads Diverge",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "8 · WHERE ROADS DIVERGE",
+          "spineLabel": "8 \u00b7 WHERE ROADS DIVERGE",
           "identified": true,
           "color": "#2a5a4a",
-          "notes": "Numbered reading series, vol. 8 (from spine numbering)."
+          "notes": "Numbered reading series, vol. 8 (from spine numbering).",
+          "spineCrop": {
+            "x": 30.65,
+            "y": 51.8,
+            "w": 5.18,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-047",
@@ -481,7 +743,13 @@
           "category": "fiction",
           "spineLabel": "SUMMER DAYS WITH THE MOODYS",
           "identified": true,
-          "color": "#e8c84a"
+          "color": "#e8c84a",
+          "spineCrop": {
+            "x": 36.42,
+            "y": 51.8,
+            "w": 5.18,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-048",
@@ -490,7 +758,13 @@
           "category": "fiction",
           "spineLabel": "AUTUMN DAYS WITH THE MOODYS",
           "identified": true,
-          "color": "#d4783a"
+          "color": "#d4783a",
+          "spineCrop": {
+            "x": 42.19,
+            "y": 51.8,
+            "w": 5.18,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-049",
@@ -499,7 +773,13 @@
           "category": "fiction",
           "spineLabel": "WINTER DAYS WITH THE MOODYS",
           "identified": true,
-          "color": "#5a8a5a"
+          "color": "#5a8a5a",
+          "spineCrop": {
+            "x": 47.96,
+            "y": 51.8,
+            "w": 2.73,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-050",
@@ -508,15 +788,14 @@
           "category": "fiction",
           "spineLabel": "SPRING DAYS WITH THE MOODYS",
           "identified": true,
-          "color": "#5a8ab8"
-        }
-      ]
-    },
-    {
-      "id": "shelf-3-right",
-      "label": "Lower shelf — right",
-      "photo": "/shelves/shelf-thomas-1.jpg",
-      "books": [
+          "color": "#5a8ab8",
+          "spineCrop": {
+            "x": 51.27,
+            "y": 51.8,
+            "w": 2.73,
+            "h": 16.4
+          }
+        },
         {
           "id": "bk-051",
           "title": null,
@@ -525,7 +804,13 @@
           "spineLabel": "Historical / adventure",
           "identified": false,
           "color": "#2a2a2e",
-          "notes": "Thin dark spine; title unclear."
+          "notes": "Thin dark spine; title unclear.",
+          "spineCrop": {
+            "x": 54.0,
+            "y": 51.8,
+            "w": 4.47,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-052",
@@ -535,7 +820,13 @@
           "spineLabel": "Historical / adventure",
           "identified": false,
           "color": "#3a3030",
-          "notes": "Thin dark spine; title unclear."
+          "notes": "Thin dark spine; title unclear.",
+          "spineCrop": {
+            "x": 58.93,
+            "y": 51.8,
+            "w": 4.47,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-053",
@@ -545,7 +836,13 @@
           "spineLabel": "Historical / adventure",
           "identified": false,
           "color": "#252830",
-          "notes": "Thin dark spine; title unclear."
+          "notes": "Thin dark spine; title unclear.",
+          "spineCrop": {
+            "x": 63.87,
+            "y": 51.8,
+            "w": 4.47,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-054",
@@ -555,53 +852,83 @@
           "spineLabel": "Historical / adventure",
           "identified": false,
           "color": "#2e2a28",
-          "notes": "Thin dark spine; title unclear."
+          "notes": "Thin dark spine; title unclear.",
+          "spineCrop": {
+            "x": 68.8,
+            "y": 51.8,
+            "w": 4.47,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-055",
-          "title": "God's Big Story — Level 1",
+          "title": "God's Big Story \u2014 Level 1",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "GOD'S BIG STORY · LEVEL 1",
+          "spineLabel": "GOD'S BIG STORY \u00b7 LEVEL 1",
           "identified": true,
           "color": "#7ab0d0",
-          "notes": "Thick light-blue volume."
+          "notes": "Thick light-blue volume.",
+          "spineCrop": {
+            "x": 73.73,
+            "y": 51.8,
+            "w": 4.47,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-056",
-          "title": "God's Big Story — Level 2",
+          "title": "God's Big Story \u2014 Level 2",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "GOD'S BIG STORY · LEVEL 2",
+          "spineLabel": "GOD'S BIG STORY \u00b7 LEVEL 2",
           "identified": true,
           "color": "#4a8a5a",
-          "notes": "Thick green volume."
+          "notes": "Thick green volume.",
+          "spineCrop": {
+            "x": 78.67,
+            "y": 51.8,
+            "w": 4.47,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-057",
-          "title": "God's Big Story — Level 3",
+          "title": "God's Big Story \u2014 Level 3",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "GOD'S BIG STORY · LEVEL 3",
+          "spineLabel": "GOD'S BIG STORY \u00b7 LEVEL 3",
           "identified": true,
           "color": "#2a4a7a",
-          "notes": "Thick dark-blue volume."
+          "notes": "Thick dark-blue volume.",
+          "spineCrop": {
+            "x": 83.6,
+            "y": 51.8,
+            "w": 4.47,
+            "h": 16.4
+          }
         },
         {
           "id": "bk-058",
-          "title": "God's Big Story — Level 4",
+          "title": "God's Big Story \u2014 Level 4",
           "author": null,
           "category": "nonfiction",
-          "spineLabel": "GOD'S BIG STORY · LEVEL 4",
+          "spineLabel": "GOD'S BIG STORY \u00b7 LEVEL 4",
           "identified": true,
           "color": "#a83a3a",
-          "notes": "Thick red volume."
+          "notes": "Thick red volume.",
+          "spineCrop": {
+            "x": 88.53,
+            "y": 51.8,
+            "w": 4.47,
+            "h": 16.4
+          }
         }
       ]
     },
     {
-      "id": "shelf-4",
-      "label": "Bottom shelf",
+      "id": "shelf-04",
+      "label": "Shelf 04",
       "photo": "/shelves/shelf-thomas-1.jpg",
       "books": [
         {
@@ -612,7 +939,13 @@
           "spineLabel": "Unidentified spine",
           "identified": false,
           "color": "#5a5048",
-          "notes": "Partially visible bottom shelf spine."
+          "notes": "Partially visible bottom shelf spine.",
+          "spineCrop": {
+            "x": 10.0,
+            "y": 74.8,
+            "w": 15.19,
+            "h": 15.4
+          }
         },
         {
           "id": "bk-060",
@@ -622,7 +955,13 @@
           "spineLabel": "Unidentified spine",
           "identified": false,
           "color": "#6a6058",
-          "notes": "Partially visible bottom shelf spine."
+          "notes": "Partially visible bottom shelf spine.",
+          "spineCrop": {
+            "x": 25.85,
+            "y": 74.8,
+            "w": 18.23,
+            "h": 15.4
+          }
         },
         {
           "id": "bk-061",
@@ -632,7 +971,13 @@
           "spineLabel": "EASY HOME REPAIR",
           "identified": true,
           "color": "#2a6ab8",
-          "notes": "Bright blue how-to on the lower shelf."
+          "notes": "Bright blue how-to on the lower shelf.",
+          "spineCrop": {
+            "x": 44.74,
+            "y": 74.8,
+            "w": 20.26,
+            "h": 15.4
+          }
         }
       ]
     }

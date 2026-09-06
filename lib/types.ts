@@ -21,6 +21,14 @@ export const CATEGORY_LABELS: Record<Category, string> = {
   unidentified: "Unidentified",
 };
 
+/** Crop region as percentages (0–100) of the shelf photo. */
+export interface SpineCrop {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+}
+
 export interface Book {
   /** Stable unique id, e.g. "bk-014". */
   id: string;
@@ -37,6 +45,8 @@ export interface Book {
   color: string;
   /** Optional freeform note (condition, provenance, legibility, ...). */
   notes?: string;
+  /** Optional crop of the shelf photo used as the spine face. */
+  spineCrop?: SpineCrop;
 }
 
 export interface Shelf {

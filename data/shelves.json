@@ -1,0 +1,322 @@
+{
+  "demo": true,
+  "shelves": [
+    {
+      "id": "shelf-1",
+      "label": "Living Room — Top Shelf",
+      "photo": null,
+      "books": [
+        {
+          "id": "bk-001",
+          "title": "The Cartographer's Daughter",
+          "author": "Elena Marsh",
+          "category": "fiction",
+          "spineLabel": "THE CARTOGRAPHER'S DAUGHTER · MARSH",
+          "identified": true,
+          "color": "#2f4858",
+          "notes": "Hardcover, dust jacket lightly worn at the head."
+        },
+        {
+          "id": "bk-002",
+          "title": "Embermarch",
+          "author": "K. R. Voss",
+          "category": "fantasy-horror",
+          "spineLabel": "EMBERMARCH — VOSS",
+          "identified": true,
+          "color": "#7a1f1f"
+        },
+        {
+          "id": "bk-003",
+          "title": "The Ledger of Small Betrayals",
+          "author": "Frank Okafor",
+          "category": "crime-mystery",
+          "spineLabel": "OKAFOR · THE LEDGER OF SMALL BETRAYALS",
+          "identified": true,
+          "color": "#1e2a24"
+        },
+        {
+          "id": "bk-004",
+          "title": null,
+          "author": null,
+          "category": "unidentified",
+          "spineLabel": "…RCHARD KEE…",
+          "identified": false,
+          "color": "#6a6f5c",
+          "notes": "Faded cloth spine; only the middle of the title is legible."
+        },
+        {
+          "id": "bk-005",
+          "title": "Salt and Cedar",
+          "author": "Tomas Reyes",
+          "category": "fiction",
+          "spineLabel": "SALT AND CEDAR · REYES",
+          "identified": true,
+          "color": "#b0885a"
+        },
+        {
+          "id": "bk-006",
+          "title": "Shelf Life: A History of Home Libraries",
+          "author": "Alice Munsen",
+          "category": "nonfiction",
+          "spineLabel": "SHELF LIFE — MUNSEN",
+          "identified": true,
+          "color": "#3d5a45",
+          "notes": "The book that started this whole project."
+        },
+        {
+          "id": "bk-007",
+          "title": "The Bone Orchard Below",
+          "author": "Sadie Rooke",
+          "category": "fantasy-horror",
+          "spineLabel": "ROOKE · THE BONE ORCHARD BELOW",
+          "identified": true,
+          "color": "#25203a"
+        },
+        {
+          "id": "bk-008",
+          "title": "Dead Man's Switchback",
+          "author": "Rhea Calloway",
+          "category": "crime-mystery",
+          "spineLabel": "DEAD MAN'S SWITCHBACK",
+          "identified": true,
+          "color": "#8c4a2f"
+        },
+        {
+          "id": "bk-009",
+          "title": null,
+          "author": null,
+          "category": "unidentified",
+          "spineLabel": "(no legible text)",
+          "identified": false,
+          "color": "#4b4239",
+          "notes": "Plain brown spine, no visible lettering. Possibly a journal."
+        },
+        {
+          "id": "bk-010",
+          "title": "A Quiet Inventory",
+          "author": "Priya Chandran",
+          "category": "fiction",
+          "spineLabel": "A QUIET INVENTORY · CHANDRAN",
+          "identified": true,
+          "color": "#c7b299"
+        },
+        {
+          "id": "bk-011",
+          "title": "The Fermentation Kitchen",
+          "author": "Marta Illes",
+          "category": "nonfiction",
+          "spineLabel": "ILLES — THE FERMENTATION KITCHEN",
+          "identified": true,
+          "color": "#a4632e"
+        },
+        {
+          "id": "bk-012",
+          "title": "The Wintering Court",
+          "author": "Maren Solvay",
+          "category": "fantasy-horror",
+          "spineLabel": "THE WINTERING COURT · SOLVAY",
+          "identified": true,
+          "color": "#37546b"
+        }
+      ]
+    },
+    {
+      "id": "shelf-2",
+      "label": "Study — Middle Shelf",
+      "photo": null,
+      "books": [
+        {
+          "id": "bk-013",
+          "title": "The Ashvale Confessions",
+          "author": "Martin Kessler",
+          "category": "crime-mystery",
+          "spineLabel": "KESSLER · THE ASHVALE CONFESSIONS",
+          "identified": true,
+          "color": "#26323e"
+        },
+        {
+          "id": "bk-014",
+          "title": "Six Bridges: Engineering the Impossible",
+          "author": "Caleb Wright",
+          "category": "nonfiction",
+          "spineLabel": "SIX BRIDGES — WRIGHT",
+          "identified": true,
+          "color": "#5b6770"
+        },
+        {
+          "id": "bk-015",
+          "title": "The Last Ferry to Aldermoor",
+          "author": "June Whitlock",
+          "category": "fiction",
+          "spineLabel": "THE LAST FERRY TO ALDERMOOR",
+          "identified": true,
+          "color": "#496b5d"
+        },
+        {
+          "id": "bk-016",
+          "title": null,
+          "author": null,
+          "category": "unidentified",
+          "spineLabel": "…IGHT OF THE…",
+          "identified": false,
+          "color": "#7d2c3a",
+          "notes": "Gilt lettering mostly rubbed off. Red buckram binding."
+        },
+        {
+          "id": "bk-017",
+          "title": "What the Lighthouse Kept",
+          "author": "D. M. Ashworth",
+          "category": "fantasy-horror",
+          "spineLabel": "WHAT THE LIGHTHOUSE KEPT · ASHWORTH",
+          "identified": true,
+          "color": "#1f3b4d"
+        },
+        {
+          "id": "bk-018",
+          "title": "Nobody's Alibi",
+          "author": "Lena Brandt",
+          "category": "crime-mystery",
+          "spineLabel": "BRANDT — NOBODY'S ALIBI",
+          "identified": true,
+          "color": "#b3a24c"
+        },
+        {
+          "id": "bk-019",
+          "title": "Field Notes from a Backyard Prairie",
+          "author": "Rosa Delgado",
+          "category": "nonfiction",
+          "spineLabel": "FIELD NOTES FROM A BACKYARD PRAIRIE",
+          "identified": true,
+          "color": "#6d8a4e"
+        },
+        {
+          "id": "bk-020",
+          "title": "Glasshouse Summer",
+          "author": "Owen Petrie",
+          "category": "fiction",
+          "spineLabel": "GLASSHOUSE SUMMER · PETRIE",
+          "identified": true,
+          "color": "#87a7b3"
+        },
+        {
+          "id": "bk-021",
+          "title": null,
+          "author": null,
+          "category": "unidentified",
+          "spineLabel": "V·II",
+          "identified": false,
+          "color": "#3a3d4d",
+          "notes": "Second volume of something — no series name visible."
+        },
+        {
+          "id": "bk-022",
+          "title": "The Seventh Door of Marrow Hall",
+          "author": "Celia Trent",
+          "category": "fantasy-horror",
+          "spineLabel": "TRENT · THE SEVENTH DOOR OF MARROW HALL",
+          "identified": true,
+          "color": "#432c47"
+        },
+        {
+          "id": "bk-023",
+          "title": "The Clockmaker's Silence",
+          "author": "Hugo Farrant",
+          "category": "crime-mystery",
+          "spineLabel": "THE CLOCKMAKER'S SILENCE — FARRANT",
+          "identified": true,
+          "color": "#704214"
+        }
+      ]
+    },
+    {
+      "id": "shelf-3",
+      "label": "Bedroom — Nightstand Shelf",
+      "photo": null,
+      "books": [
+        {
+          "id": "bk-024",
+          "title": "Meridian Avenue",
+          "author": "Carmen Ojeda",
+          "category": "fiction",
+          "spineLabel": "MERIDIAN AVENUE · OJEDA",
+          "identified": true,
+          "color": "#c25e4c"
+        },
+        {
+          "id": "bk-025",
+          "title": "The Quiet Art of Repair",
+          "author": "Yusuf Adeyemi",
+          "category": "nonfiction",
+          "spineLabel": "ADEYEMI — THE QUIET ART OF REPAIR",
+          "identified": true,
+          "color": "#847577"
+        },
+        {
+          "id": "bk-026",
+          "title": "Spindleworm",
+          "author": "Augusta Finn",
+          "category": "fantasy-horror",
+          "spineLabel": "SPINDLEWORM · FINN",
+          "identified": true,
+          "color": "#4d5e33"
+        },
+        {
+          "id": "bk-027",
+          "title": null,
+          "author": null,
+          "category": "unidentified",
+          "spineLabel": "…AND OTHER STORIES",
+          "identified": false,
+          "color": "#9a8866",
+          "notes": "Anthology of some kind; top half of the spine label is torn away."
+        },
+        {
+          "id": "bk-028",
+          "title": "Low Tide at Copper Bay",
+          "author": "Nia Trelawney",
+          "category": "crime-mystery",
+          "spineLabel": "LOW TIDE AT COPPER BAY · TRELAWNEY",
+          "identified": true,
+          "color": "#2e5f6e"
+        },
+        {
+          "id": "bk-029",
+          "title": "Paper Trails: Letters That Changed Nothing",
+          "author": "Iris Kaufman",
+          "category": "nonfiction",
+          "spineLabel": "PAPER TRAILS — KAUFMAN",
+          "identified": true,
+          "color": "#d8c9a3"
+        },
+        {
+          "id": "bk-030",
+          "title": "The Orchardkeeper's Almanac",
+          "author": "Hale Bennett",
+          "category": "fiction",
+          "spineLabel": "THE ORCHARDKEEPER'S ALMANAC",
+          "identified": true,
+          "color": "#7c5c3b"
+        },
+        {
+          "id": "bk-031",
+          "title": null,
+          "author": null,
+          "category": "unidentified",
+          "spineLabel": "…IDNIGHT…",
+          "identified": false,
+          "color": "#20242e",
+          "notes": "Black spine with silver serif type; glare hides the rest."
+        },
+        {
+          "id": "bk-032",
+          "title": "Nightjar's Bargain",
+          "author": "Ivo Petrenko",
+          "category": "fantasy-horror",
+          "spineLabel": "NIGHTJAR'S BARGAIN · PETRENKO",
+          "identified": true,
+          "color": "#54321e"
+        }
+      ]
+    }
+  ]
+}

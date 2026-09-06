@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-parchment text-ink font-body antialiased;
+  background-image: radial-gradient(
+      circle at 20% 0%,
+      rgba(176, 141, 79, 0.06),
+      transparent 45%
+    ),
+    radial-gradient(circle at 90% 100%, rgba(107, 74, 47, 0.05), transparent 40%);
+}
+
+.spine-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.shelf-ledge {
+  background: linear-gradient(180deg, #8a6a4b 0%, #6b4a2f 55%, #4a331f 100%);
+}
+
+.shelf-back {
+  background: linear-gradient(180deg, #efe7da 0%, #e6dbc9 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
